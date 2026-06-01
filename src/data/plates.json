@@ -1,397 +1,214 @@
 [
 	{
 		"id": 1,
-		"slug": "antipasti",
-		"prettyName": "Antipasti",
-		"description": "Start your meal with one of our delicious appetizers.",
+		"slug": "entradas",
+		"prettyName": "Entradas",
+		"description": "Comienza tu experiencia con nuestros antojitos hondureños.",
 		"plates": [
 			{
-				"name": "Bruschetta",
-				"description": "Grilled bread topped with fresh tomatoes, garlic, basil, and olive oil.",
-				"price": 6.5
+				"name": "Pastelitos de Carne",
+				"description": "Pastelitos fritos rellenos de carne molida y verduras, servidos con repollo y crema.",
+				"price": 60
 			},
 			{
-				"name": "Caprese",
-				"description": "Slices of mozzarella, tomatoes, and basil drizzled with balsamic glaze.",
-				"price": 8.5
+				"name": "Sopa de Mondongo",
+				"description": "Deliciosa sopa tradicional con mondongo, yuca, elote y especias del campo.",
+				"price": 120
 			},
 			{
-				"name": "Arancini",
-				"description": "Crispy risotto balls filled with cheese and served with marinara sauce.",
-				"price": 7.5
+				"name": "Tostadas con Frijoles",
+				"description": "Tortillas tostadas con frijoles refritos, queso rallado y crema.",
+				"price": 45
 			},
 			{
-				"name": "Prosciutto e Melone",
-				"description": "Cured ham paired with sweet cantaloupe.",
-				"price": 9
+				"name": "Tamalitos de Elote",
+				"description": "Tiernos tamalitos de elote envueltos en hoja de milpa, servidos con crema.",
+				"price": 50
 			},
 			{
-				"name": "Antipasto Platter",
-				"description": "A selection of cured meats, cheeses, and marinated vegetables.",
-				"price": 12
+				"name": "Yuca Frita con Chicharrón",
+				"description": "Yuca frita crujiente acompañada de chicharrón y curtido de repollo.",
+				"price": 95
 			}
 		]
 	},
 	{
 		"id": 2,
-		"slug": "insalate",
-		"prettyName": "Insalate",
-		"description": "Fresh and healthy salads made with seasonal ingredients.",
+		"slug": "baleadas",
+		"prettyName": "Baleadas",
+		"description": "El plato más icónico de Honduras, disponible en varias versiones.",
 		"plates": [
 			{
-				"name": "Caesar Salad",
-				"description": "Crisp romaine with parmesan, croutons, and Caesar dressing.",
-				"price": 7.5
+				"name": "Baleada Sencilla",
+				"description": "Tortilla de harina con frijoles refritos, mantequilla y queso rallado.",
+				"price": 35
 			},
 			{
-				"name": "Panzanella",
-				"description": "Tuscan bread salad with tomatoes, cucumbers, and basil.",
-				"price": 8
+				"name": "Baleada Especial",
+				"description": "Tortilla de harina con frijoles, mantequilla, queso, huevo revuelto y crema.",
+				"price": 55
 			},
 			{
-				"name": "Insalata Mista",
-				"description": "Mixed greens with cherry tomatoes, cucumbers, and a light vinaigrette.",
-				"price": 6.5
+				"name": "Baleada con Pollo",
+				"description": "Tortilla de harina con frijoles, pollo deshebrado, queso, aguacate y crema.",
+				"price": 75
 			},
 			{
-				"name": "Caprese Salad",
-				"description": "Fresh mozzarella, tomatoes, and basil with balsamic reduction.",
-				"price": 9
+				"name": "Baleada con Carne Asada",
+				"description": "Tortilla de harina con frijoles, carne asada en tiras, queso y jalapeños.",
+				"price": 85
 			},
 			{
-				"name": "Arugula Salad",
-				"description": "Peppery arugula with shaved parmesan and lemon dressing.",
-				"price": 7
+				"name": "Baleada Vegetariana",
+				"description": "Tortilla de harina con frijoles, aguacate, verduras salteadas y queso.",
+				"price": 65
 			}
 		]
 	},
 	{
 		"id": 3,
-		"slug": "zuppe",
-		"prettyName": "Zuppe",
-		"description": "Warm up with one of our delicious soups.",
+		"slug": "platos-fuertes",
+		"prettyName": "Platos Fuertes",
+		"description": "La esencia de la cocina hondureña en platos completos y generosos.",
 		"plates": [
 			{
-				"name": "Minestrone",
-				"description": "Hearty vegetable soup with beans and pasta.",
-				"price": 6.5
+				"name": "Sopa de Caracol",
+				"description": "Nuestra famosa sopa de caracol con leche de coco, yuca, plátano y especias caribeñas. Especialidad de la casa.",
+				"price": 220
 			},
 			{
-				"name": "Zuppa Toscana",
-				"description": "Creamy soup with potatoes, sausage, and kale.",
-				"price": 7.5
+				"name": "Pollo Chuco",
+				"description": "Pollo frito al estilo hondureño con tajadas de plátano verde, repollo, tomate y curtido.",
+				"price": 155
 			},
 			{
-				"name": "Tomato Basil Soup",
-				"description": "Rich tomato soup with fresh basil.",
-				"price": 5.5
+				"name": "Tajadas con Pollo",
+				"description": "Abundantes tajadas de plátano maduro fritas, con pollo asado, repollo y salsa roja.",
+				"price": 140
 			},
 			{
-				"name": "Lentil Soup",
-				"description": "Healthy lentil soup with vegetables and herbs.",
-				"price": 6
+				"name": "Plato Típico Completo",
+				"description": "Carne asada, chorizo, frijoles, arroz, tajadas, ensalada y tortillas artesanales.",
+				"price": 195
 			},
 			{
-				"name": "Seafood Bisque",
-				"description": "Creamy soup with a medley of seafood.",
-				"price": 9.5
+				"name": "Sopa de Res",
+				"description": "Sopa de costilla de res con papa, yuca, elote y hierbas frescas del valle.",
+				"price": 165
+			},
+			{
+				"name": "Carne Asada a la Plancha",
+				"description": "Filete de res a la plancha con chimol, arroz, frijoles y tortillas.",
+				"price": 175
+			},
+			{
+				"name": "Pescado Frito Entero",
+				"description": "Pescado fresco frito entero, con ensalada, tajadas y tortillas.",
+				"price": 185
+			},
+			{
+				"name": "Tamales Hondureños",
+				"description": "Tamales de masa de maíz rellenos de pollo y verduras, envueltos en hoja de plátano.",
+				"price": 80
 			}
 		]
 	},
 	{
 		"id": 4,
-		"slug": "first-courses",
-		"prettyName": "First Courses",
-		"description": "Savor the flavors of our exquisite first courses.",
+		"slug": "desayunos",
+		"prettyName": "Desayunos",
+		"description": "Empieza el día con los sabores del campo hondureño.",
 		"plates": [
 			{
-				"name": "Spaghetti Carbonara",
-				"description": "Classic pasta with pancetta, eggs, and parmesan.",
-				"price": 12
+				"name": "Desayuno Típico",
+				"description": "Huevos al gusto, frijoles, crema, queso, tajadas y café o jugo.",
+				"price": 95
 			},
 			{
-				"name": "Lasagna Bolognese",
-				"description": "Layered pasta with rich meat sauce and béchamel.",
-				"price": 14
+				"name": "Huevos Rancheros",
+				"description": "Huevos fritos sobre tortillas con salsa ranchera, frijoles y queso.",
+				"price": 85
 			},
 			{
-				"name": "Risotto alla Milanese",
-				"description": "Creamy saffron risotto.",
-				"price": 13.5
+				"name": "Machuca de Plátano",
+				"description": "Plátano verde machucado con frijoles, queso y crema. Desayuno tradicional garífuna.",
+				"price": 90
 			},
 			{
-				"name": "Penne Arrabbiata",
-				"description": "Spicy tomato sauce with garlic and chili peppers.",
-				"price": 11.5
-			},
-			{
-				"name": "Gnocchi al Pesto",
-				"description": "Potato dumplings in basil pesto sauce.",
-				"price": 12.5
+				"name": "Atol de Elote",
+				"description": "Bebida caliente de elote tierno con un toque de canela, acompañado de pan.",
+				"price": 45
 			}
 		]
 	},
 	{
 		"id": 5,
-		"slug": "second-courses",
-		"prettyName": "Second Courses",
-		"description": "Indulge in our hearty and satisfying main courses.",
+		"slug": "postres",
+		"prettyName": "Postres",
+		"description": "Dulces tradiciones que endulzan cada visita.",
 		"plates": [
 			{
-				"name": "Osso Buco",
-				"description": "Braised veal shank with gremolata and risotto.",
-				"price": 19.5
+				"name": "Tres Leches",
+				"description": "Esponjoso bizcocho bañado en tres leches con crema chantilly y canela.",
+				"price": 70
 			},
 			{
-				"name": "Pollo alla Cacciatora",
-				"description": "Chicken stewed with tomatoes, peppers, and herbs.",
-				"price": 16.5
+				"name": "Arroz con Leche",
+				"description": "Cremoso arroz con leche perfumado con canela y vainilla hondureña.",
+				"price": 50
 			},
 			{
-				"name": "Bistecca alla Fiorentina",
-				"description": "Grilled T-bone steak seasoned with olive oil and herbs.",
-				"price": 25
+				"name": "Rosquillas de Maíz",
+				"description": "Rosquillas artesanales de maíz y queso, horneadas en horno de leña.",
+				"price": 35
 			},
 			{
-				"name": "Grilled Sea Bass",
-				"description": "Fresh sea bass with lemon and herbs.",
-				"price": 18.5
+				"name": "Buñuelos con Miel",
+				"description": "Buñuelos crujientes bañados en miel de caña y canela.",
+				"price": 60
 			},
 			{
-				"name": "Eggplant Parmesan",
-				"description": "Baked layers of eggplant, marinara, and mozzarella.",
-				"price": 14.5
+				"name": "Helado de Coco Artesanal",
+				"description": "Helado cremoso hecho con coco fresco de la costa hondureña.",
+				"price": 55
 			}
 		]
 	},
 	{
 		"id": 6,
-		"slug": "side-dishes",
-		"prettyName": "Side Dishes",
-		"description": "Complement your meal with our delightful side dishes.",
+		"slug": "bebidas",
+		"prettyName": "Bebidas",
+		"description": "Refréscate con nuestras bebidas tradicionales y naturales.",
 		"plates": [
 			{
-				"name": "Grilled Vegetables",
-				"description": "A mix of seasonal vegetables grilled to perfection.",
-				"price": 5.5
+				"name": "Horchata",
+				"description": "Bebida fresca de arroz, semillas de jícaro y especias.",
+				"price": 35
 			},
 			{
-				"name": "Roasted Potatoes",
-				"description": "Crispy potatoes seasoned with rosemary and olive oil.",
-				"price": 4.5
+				"name": "Fresco de Tamarindo",
+				"description": "Fresco natural de tamarindo con agua y un toque de azúcar.",
+				"price": 30
 			},
 			{
-				"name": "Spinach with Garlic",
-				"description": "Sautéed spinach with fresh garlic.",
-				"price": 5
+				"name": "Café Hondureño",
+				"description": "Café de altura 100% hondureño, servido negro o con leche.",
+				"price": 30
 			},
 			{
-				"name": "Polenta",
-				"description": "Creamy cornmeal with parmesan cheese.",
-				"price": 6
+				"name": "Jugo de Naranja Natural",
+				"description": "Jugo de naranja recién exprimido, pura vitamina C.",
+				"price": 40
 			},
 			{
-				"name": "Caprese Side",
-				"description": "A smaller portion of mozzarella, tomato, and basil.",
-				"price": 4.5
-			}
-		]
-	},
-	{
-		"id": 7,
-		"slug": "pizza",
-		"prettyName": "Pizza",
-		"description": "Enjoy our freshly baked pizzas with a variety of toppings.",
-		"plates": [
-			{
-				"name": "Margherita",
-				"description": "Classic pizza with tomato, mozzarella, and basil.",
-				"price": 10.5
+				"name": "Refresco de Maracuyá",
+				"description": "Fresco de maracuyá tropical con agua y azúcar de caña.",
+				"price": 35
 			},
 			{
-				"name": "Quattro Stagioni",
-				"description": "Four seasons pizza with artichokes, ham, mushrooms, and olives.",
-				"price": 12.5
-			},
-			{
-				"name": "Diavola",
-				"description": "Spicy salami with tomato sauce and mozzarella.",
-				"price": 11.5
-			},
-			{
-				"name": "Prosciutto e Funghi",
-				"description": "Ham and mushrooms with mozzarella and tomato sauce.",
-				"price": 12
-			},
-			{
-				"name": "Vegetariana",
-				"description": "A mix of seasonal vegetables and mozzarella.",
-				"price": 11
-			}
-		]
-	},
-	{
-		"id": 8,
-		"slug": "specials",
-		"prettyName": "Specials",
-		"description": "Discover our chef's special creations for the day.",
-		"plates": [
-			{
-				"name": "Truffle Risotto",
-				"description": "Creamy risotto infused with black truffle.",
-				"price": 18.5
-			},
-			{
-				"name": "Lobster Ravioli",
-				"description": "Homemade ravioli filled with lobster in a saffron sauce.",
-				"price": 20.5
-			},
-			{
-				"name": "Porcini Mushroom Pasta",
-				"description": "Fresh pasta with porcini mushrooms and a cream sauce.",
-				"price": 17.5
-			},
-			{
-				"name": "Veal Marsala",
-				"description": "Tender veal in a Marsala wine sauce.",
-				"price": 19.5
-			},
-			{
-				"name": "Stuffed Zucchini Flowers",
-				"description": "Crispy zucchini flowers filled with ricotta and herbs.",
-				"price": 15.5
-			}
-		]
-	},
-	{
-		"id": 9,
-		"slug": "kids-menu",
-		"prettyName": "Kids Menu",
-		"description": "Delicious and fun meals for our younger guests.",
-		"plates": [
-			{
-				"name": "Mini Margherita",
-				"description": "Kid-sized pizza with tomato and mozzarella.",
-				"price": 6.5
-			},
-			{
-				"name": "Spaghetti Butter & Cheese",
-				"description": "Simple pasta with butter and parmesan.",
-				"price": 5.5
-			},
-			{
-				"name": "Chicken Nuggets & Fries",
-				"description": "Crispy chicken bites with golden fries.",
-				"price": 7
-			},
-			{
-				"name": "Mini Lasagna",
-				"description": "Smaller portion of our classic lasagna.",
-				"price": 7.5
-			},
-			{
-				"name": "Mac & Cheese",
-				"description": "Cheesy pasta perfect for kids.",
-				"price": 6
-			}
-		]
-	},
-	{
-		"id": 10,
-		"slug": "desserts",
-		"prettyName": "Desserts",
-		"description": "End your meal with one of our sweet and delightful desserts.",
-		"plates": [
-			{
-				"name": "Tiramisu",
-				"description": "Classic Italian dessert with layers of mascarpone and coffee-soaked ladyfingers.",
-				"price": 6.5
-			},
-			{
-				"name": "Panna Cotta",
-				"description": "Creamy custard dessert with a berry coulis.",
-				"price": 6
-			},
-			{
-				"name": "Cannoli",
-				"description": "Crispy pastry shells filled with sweet ricotta cream.",
-				"price": 5.5
-			},
-			{
-				"name": "Gelato",
-				"description": "Choice of two scoops of our homemade Italian ice cream.",
-				"price": 4.5
-			},
-			{
-				"name": "Affogato",
-				"description": "Vanilla gelato topped with a shot of espresso.",
-				"price": 5.5
-			}
-		]
-	},
-	{
-		"id": 11,
-		"slug": "beverages",
-		"prettyName": "Beverages",
-		"description": "Refresh yourself with our selection of drinks.",
-		"plates": [
-			{
-				"name": "Sparkling Water",
-				"description": "Chilled sparkling mineral water.",
-				"price": 2.5
-			},
-			{
-				"name": "Still Water",
-				"description": "Chilled still mineral water.",
-				"price": 2
-			},
-			{
-				"name": "Espresso",
-				"description": "Strong Italian coffee shot.",
-				"price": 2.5
-			},
-			{
-				"name": "Cappuccino",
-				"description": "Espresso with steamed milk and foam.",
-				"price": 3.5
-			},
-			{
-				"name": "Lemonade",
-				"description": "Fresh homemade lemonade.",
-				"price": 3
-			}
-		]
-	},
-	{
-		"id": 12,
-		"slug": "wines",
-		"prettyName": "Wines",
-		"description": "Choose from our curated list of fine wines.",
-		"plates": [
-			{
-				"name": "Chianti",
-				"description": "Classic red wine from Tuscany.",
-				"price": 6.5
-			},
-			{
-				"name": "Pinot Grigio",
-				"description": "Crisp and refreshing white wine.",
-				"price": 6
-			},
-			{
-				"name": "Prosecco",
-				"description": "Sparkling wine from Veneto.",
-				"price": 7
-			},
-			{
-				"name": "Barolo",
-				"description": "Full-bodied red wine from Piedmont.",
-				"price": 9
-			},
-			{
-				"name": "Rosé",
-				"description": "Light and fruity wine perfect for any meal.",
-				"price": 6.5
+				"name": "Agua de Jamaica",
+				"description": "Fresco de flor de jamaica frío, suavemente endulzado.",
+				"price": 30
 			}
 		]
 	}

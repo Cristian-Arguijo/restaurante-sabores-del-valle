@@ -8,24 +8,22 @@ const siteLangFormat = siteLang.replace("_", "-");
 
 <!-- Quick Nav -->
 <div id="plate-nav-wrapper" class="mb-20 sticky top-8 z-10">
-	<nav class="bg-brand-green text-white sm:rounded-full max-w-5xl mx-auto">
-		<div class="swiper-plates w-auto overflow-hidden">
-			<ul id="plate-nav" class="px-2.5 py-3 swiper-wrapper">
-				{
-					plates.map((plate) => (
-						<li class="swiper-slide !w-auto last:mr-5">
-							<a
-								href={`#${plate.data.slug}`}
-								class="rounded-full px-2 py-1 transition font-medium select-none"
-								data-category-link={plate.data.slug}
-							>
-								{plate.data.prettyName}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</div>
+	<nav class="bg-brand-green text-white sm:rounded-full max-w-5xl mx-auto overflow-x-auto no-scrollbar">
+		<ul id="plate-nav" class="flex items-center gap-3 px-4 py-3 whitespace-nowrap">
+			{
+				plates.map((plate) => (
+					<li class="flex-shrink-0">
+						<a
+							href={`#${plate.data.slug}`}
+							class="rounded-full px-4 py-1 transition font-medium select-none hover:bg-white/10"
+							data-category-link={plate.data.slug}
+						>
+							{plate.data.prettyName}
+						</a>
+					</li>
+				))
+			}
+		</ul>
 	</nav>
 </div>
 

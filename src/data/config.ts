@@ -1,28 +1,31 @@
 // Global variables
-export const siteLang = "en-US";
-export const siteCurrency = "USD";
-export const siteDomain = "astropie.com";
-export const siteName = "AstroPie";
-export const siteSlogan = "The best pies in the galaxy!";
-export const themeColor = "#FF0000";
+export const siteLang = "es-HN";
+export const siteCurrency = "HNL";
+export const siteDomain = "saboresdelvalle.hn";
+export const siteName = "Sabores del Valle";
+export const siteSlogan = "El sabor auténtico de Honduras en cada bocado";
+export const themeColor = "#8B1A00";
 
 export const phone = {
-	href: "tel:+123456789",
-	label: "(123) 456-789",
+	href: "tel:+50422123456",
+	label: "(504) 2212-3456",
 };
+ 
 
 export const email = {
-	href: "mailto:info@astropie.com",
-	label: "info@astropie.com",
+	href: "mailto:info@saboresdelvalle.hn",
+	label: "info@saboresdelvalle.hn",
 };
 
+
 export const address = {
-	street: "1234 Space Street",
-	city: "Galaxy City",
-	zip: "12345",
-	state: "Milky Way",
-	country: "Space",
+	street: "Blvd. Morazán, Col. Palmira",
+	city: "Tegucigalpa",
+	zip: "11101",
+	state: "Francisco Morazán",
+	country: "Honduras",
 };
+
 
 export const socialMedia = {
 	facebook: {
@@ -48,11 +51,11 @@ export const socialMedia = {
 };
 
 export const hours = {
-	monday: "9:00 - 17:00",
-	tuesday: "9:00 - 17:00",
-	wednesday: "9:00 - 17:00",
-	thursday: "9:00 - 17:00",
-	friday: "9:00 - 17:00",
-	saturday: "9:00 - 17:00",
-	sunday: "Closed",
+	lunes: "7:00 AM - 9:00 PM",
+	martes: "7:00 AM - 9:00 PM",
+	miercoles: "7:00 AM - 9:00 PM",
+	jueves: "7:00 AM - 9:00 PM",
+	viernes: "7:00 AM - 10:00 PM",
+	sabado: "8:00 AM - 10:00 PM",
+	domingo: "8:00 AM - 8:00 PM",
 };

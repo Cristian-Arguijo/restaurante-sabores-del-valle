@@ -3,16 +3,117 @@ import Layout from "~/layouts/Layout.astro";
 import Section from "~/components/Section.astro";
 import Heading from "~/components/Heading.astro";
 import FormContact from "~/components/forms/FormContact.astro";
+import { phone, email, address, socialMedia, hours, siteName } from "~/data/config";
 ---
 
-<Layout>
-	<Section>
+<Layout title="Contacto" description="Contáctanos en Sabores del Valle">
+
+	<!-- CONTENIDO PRINCIPAL -->
+	<Section class:list={"bg-white"}>
 		<Heading>
-			<h2 slot="heading-title" class="font-black text-brand-green h2">Contact</h2>
-			<p slot="heading-content">Get in touch with us for any questions or inquiries.</p>
+			<h2 slot="heading-title" class="font-black text-brand-green h2">
+				Información y Contacto
+			</h2>
+
+			<p slot="heading-content">
+				Escríbenos, llámanos o visítanos.
+			</p>
 		</Heading>
 
-        <FormContact />
-		
+		<div class="grid lg:grid-cols-2 gap-6 mt-6">
+
+			<!-- INFO -->
+			<div class="space-y-6">
+
+				<!-- Dirección -->
+				<div class="bg-white border rounded-xl p-5 shadow-sm">
+					<p class="font-bold">Dirección</p>
+					<p class="text-gray-600">{address.street}</p>
+					<p class="text-gray-600">{address.city}, {address.state}</p>
+					<p class="text-gray-600">{address.country}</p>
+				</div>
+
+				<!-- Teléfono -->
+				<div class="bg-white border rounded-xl p-5 shadow-sm">
+					<p class="font-bold">📞 Teléfono</p>
+					<a class="text-brand-green hover:underline block" href={phone.href}>
+						{phone.label}
+					</a>
+
+					<a class="text-gray-600 hover:underline block" href={email.href}>
+						✉️ {email.label}
+					</a>
+				</div>
+
+				<!-- Horarios -->
+				<div class="bg-white border rounded-xl p-5 shadow-sm">
+					<p class="font-bold mb-2">Horarios</p>
+
+					<ul class="text-sm text-gray-600 space-y-1">
+						<li>Lunes: {hours.lunes}</li>
+						<li>Martes: {hours.martes}</li>
+						<li>Miércoles: {hours.miercoles}</li>
+						<li>Jueves: {hours.jueves}</li>
+						<li>Viernes: {hours.viernes}</li>
+						<li>Sábado: {hours.sabado}</li>
+						<li>Domingo: {hours.domingo}</li>
+					</ul>
+				</div>
+
+				<!-- Redes -->
+				<div class="bg-white border rounded-xl p-5 shadow-sm">
+					<p class="font-bold mb-3">Redes sociales</p>
+
+					<div class="flex gap-3 flex-wrap">
+						<a href={socialMedia.facebook.url} class="text-brand-green hover:underline">
+							Facebook
+						</a>
+						<a href={socialMedia.instagram.url} class="text-brand-green hover:underline">
+							Instagram
+						</a>
+						<a href={socialMedia.youtube.url} class="text-brand-green hover:underline">
+							YouTube
+						</a>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- FORMULARIO -->
+			<div class="bg-white border rounded-xl p-6 shadow-md">
+				<h3 class="text-xl font-black mb-2 text-center">Envíanos un mensaje</h3>
+				<p class="text-gray-500 text-center text-sm mb-6">
+					Te respondemos lo más rápido posible.
+				</p>
+
+				<FormContact />
+			</div>
+
+		</div>
 	</Section>
+
+	<!-- MAPA -->
+	<Section class:list={"bg-brand-green/10 py-16"}>
+		<div class="max-w-5xl mx-auto">
+
+			<h3 class="text-2xl font-black text-center mb-6 text-brand-green">
+				Ubicación
+			</h3>
+
+			<div class="w-full h-96 rounded-xl overflow-hidden shadow-lg">
+				<iframe
+					class="w-full h-full"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.6126260433352!2d-87.1864121!3d14.100029999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa326da9c4fab%3A0xcc904d27d8633f76!2sBlvd.%20Moraz%C3%A1n%2C%20Tegucigalpa%2C%20Francisco%20Moraz%C3%A1n!5e0!3m2!1ses!2shn!4v1780303040917!5m2!1ses!2shn"
+				/>
+			</div>
+
+			<p class="text-center text-gray-600 mt-4">
+				{address.street}, {address.city}
+			</p>
+
+		</div>
+	</Section>
+
 </Layout>

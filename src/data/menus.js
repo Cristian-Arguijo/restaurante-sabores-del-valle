@@ -1,6 +1,6 @@
 export const menuMain = [
     {
-        name: "Home",
+        name: "Inicio",
         url: "/",
         highlighted: false,
     },
@@ -10,22 +10,22 @@ export const menuMain = [
         highlighted: false,
     },
     {
-        name: "About Us",
+        name: "Nosotros",
         url: "/about-us",
         highlighted: false,
     },
     {
-        name: "Gallery",
+        name: "Galería",
         url: "/gallery",
         highlighted: false,
     },
     {
-        name: "Contact",
+        name: "Contacto",
         url: "/contact",
         highlighted: false,
     },
     {
-        name: "Book",
+        name: "Reservar Mesa",
         url: "/book",
         highlighted: true,
     },
@@ -33,7 +33,7 @@ export const menuMain = [
 
 export const footerPrimary = [
     {
-        title: "Navigatie",
+        title: "Navegación",
         items: [
             { name: "home", url: "/" },
         ],

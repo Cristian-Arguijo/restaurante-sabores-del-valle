@@ -1,27 +1,27 @@
 [
 	{
 		"id": 1,
-		"author": "Jane Doe",
-		"review": "The food was amazing! I loved the atmosphere and the service was great."
+		"author": "María Fernández",
+		"review": "La sopa de caracol es simplemente extraordinaria. Me recordó a los sabores de mi infancia en La Ceiba. ¡Un lugar que hay que visitar!"
 	},
 	{
 		"id": 2,
-		"author": "John Smith",
-		"review": "The best Italian food I've ever had. I can't wait to come back!"
+		"author": "Carlos Reyes",
+		"review": "Las baleadas son las mejores de Tegucigalpa, sin duda. La tortilla artesanal hace toda la diferencia. Ya van tres visitas esta semana."
 	},
 	{
 		"id": 3,
-		"author": "Alice Johnson",
-		"review": "The pasta was perfectly cooked and the sauce was delicious. I highly recommend this restaurant."
+		"author": "Ana Patricia López",
+		"review": "El ambiente es acogedor y la atención es espectacular. El plato típico completo fue una experiencia que mi familia no olvidará."
 	},
 	{
 		"id": 4,
-		"author": "Bob Brown",
-		"review": "The pizza was fantastic! I will definitely be ordering from here again."
+		"author": "Roberto Flores",
+		"review": "El pollo chuco es una delicia. La sazón es auténtica, como la de casa de mi abuela en Santa Bárbara. Totalmente recomendado."
 	},
 	{
 		"id": 5,
-		"author": "Sarah Wilson",
-		"review": "The tiramisu was to die for. I will be dreaming about it for weeks."
+		"author": "Daniela Murillo",
+		"review": "Los postres son increíbles, especialmente el tres leches. Vinimos por el almuerzo y nos quedamos también para el postre. ¡Volveremos pronto!"
 	}
 ]

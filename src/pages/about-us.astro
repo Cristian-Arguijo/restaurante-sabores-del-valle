@@ -9,80 +9,140 @@ import ButtonCallUs from "~/components/ButtonCallUs.astro";
 import Article from "~/components/Article.astro";
 
 // Images
-import PizzaHero from "~/assets/images/pizza-hero.png";
+import CocinaHero from "~/assets/images/cocineros.jpeg";
+import Local1 from "~/assets/images/local-1.jpg";
+import Local2 from "~/assets/images/exterior.webp";
+import Equipo from "~/assets/images/equipo.jpg";
+import Equipo2 from "~/assets/images/cocineros-2.webp";
+import Equipo3 from "~/assets/images/meseros.jpg";
 ---
 
 <Layout>
+
+	<!-- HERO -->
 	<Section class:list={"bg-white"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<Badge title="il ristorante italiana" />
-				<h1 class="font-black">Real Italian food in a real Italian restaurant...</h1>
+				<Badge title="sabores del valle" />
+
+				<h1 class="font-black">
+					Tradición hondureña que nace en cada cocina
+				</h1>
 
 				<p>
-					Experience the taste of Italy with our authentic dishes made from the finest ingredients. Indulge in
-					our wide variety of pizzas, pastas, and desserts, all crafted with love and tradition. Whether
-					you're dining in or taking out, we promise a memorable culinary experience.
+					En <strong>Sabores del Valle</strong> no solo servimos comida: compartimos cultura,
+					tradición y el verdadero sabor de Honduras en cada plato.
 				</p>
 
-				<span class="text-brand-green font-medium">✔ We also deliver</span>
-
 				<div class="mt-8 flex items-center gap-x-8">
-					<Button url="/book">Book now</Button>
+					<Button url="/menu">Ver menú</Button>
 					<ButtonCallUs />
 				</div>
 			</div>
+
 			<div slot="hero-content-right">
 				<Picture
 					class:list={"mx-auto"}
-					src={PizzaHero}
+					src={CocinaHero}
 					height={600}
 					formats={["avif", "webp"]}
-					alt="A description of my image."
-					loading={"eager"}
-					fetchpriority={"high"}
+					alt="Cocineros de Sabores del Valle"
 				/>
 			</div>
 		</Hero>
 	</Section>
 
+	<!-- HISTORIA -->
 	<Section class:list={'bg-white'}>
 		<Article>
-			<h2>Welcome to AstroPie</h2>
+			<h2>Nuestra Historia</h2>
+
 			<p>
-				Nestled in the heart of the city, <strong>AstroPie</strong> offers an authentic Italian dining experience
-				like no other. From the moment you step through our doors, you'll be transported to the vibrant streets of
-				Italy, where good food and great company are at the center of life.
+				<strong>Sabores del Valle</strong> nació con una idea sencilla: llevar la auténtica comida hondureña
+				a la mesa de cada familia, respetando las recetas tradicionales del país.
 			</p>
 
-			<h3>Our Story</h3>
 			<p>
-				Founded in <em>1998</em>, our family-owned restaurant has always been a labor of love. Inspired by the
-				recipes passed down through generations, we bring the <u>rich culinary heritage</u> of Italy to your plate.
-				Every dish tells a story, and every meal is a celebration of flavor.
+				Comenzamos como un pequeño emprendimiento familiar en el Valle de Honduras,
+				cocinando baleadas, sopas y platos típicos con recetas heredadas de generación en generación.
 			</p>
 
-			<h3>Our Philosophy</h3>
-			<blockquote>"The secret ingredient is always love."</blockquote>
 			<p>
-				At AstroPie, we believe in the simple joy of fresh ingredients, time-honored techniques, and a
-				passion for creating memorable meals. From our hand-rolled pasta to our wood-fired pizzas, every bite is
-				crafted with care.
+				Con el tiempo, el amor de nuestros clientes nos permitió crecer,
+				sin perder nunca lo más importante: el sabor casero y la identidad hondureña.
 			</p>
 
-			<h4>What Makes Us Special?</h4>
-			<ul>
-				<li><strong>Authenticity:</strong> Traditional recipes, just like Nonna used to make.</li>
-				<li><strong>Fresh Ingredients:</strong> Locally sourced produce and imported Italian staples.</li>
-				<li><strong>Warm Atmosphere:</strong> A place where everyone feels like family.</li>
-			</ul>
-
-			<h3>Join Us</h3>
-			<p>
-				Whether you're celebrating a special occasion or simply indulging in the pleasures of Italian cuisine, <strong
-					>AstroPie</strong
-				> is the perfect destination. <em>Come for the food, stay for the memories.</em>
-			</p>
+			<blockquote>
+				"Cada plato cuenta una historia, y cada historia sabe a Honduras."
+			</blockquote>
 		</Article>
 	</Section>
+
+	<!-- EQUIPO -->
+	<Section class:list={"bg-white"}>
+		<Article>
+			<h2>Nuestro Equipo</h2>
+
+			<p>
+				Somos un equipo apasionado por la cocina tradicional hondureña.
+				Chefs, cocineros y personal de servicio trabajan cada día para ofrecerte una experiencia auténtica.
+			</p>
+
+			<div class="grid md:grid-cols-3 gap-6 mt-8">
+
+				<div class="text-center">
+					<Picture src={Equipo} alt="Chef principal" class="rounded-xl" />
+					<h3 class="font-bold mt-3">Cocina Tradicional</h3>
+					<p>Especialistas en recetas hondureñas auténticas.</p>
+				</div>
+
+				<div class="text-center">
+					<Picture src={Equipo2} alt="Equipo de cocina" class="rounded-xl" />
+					<h3 class="font-bold mt-3">Equipo Familiar</h3>
+					<p>Trabajamos con pasión como una gran familia.</p>
+				</div>
+
+				<div class="text-center">
+					<Picture src={Equipo3} alt="Servicio al cliente" class="rounded-xl" />
+					<h3 class="font-bold mt-3">Atención al Cliente</h3>
+					<p>Siempre listos para atenderte con amabilidad.</p>
+				</div>
+
+			</div>
+		</Article>
+	</Section>
+
+	<!-- LOCAL -->
+	<Section class:list={"bg-white"}>
+		<Article>
+			<h2>Nuestro Local</h2>
+
+			<p>
+				Te invitamos a visitarnos y disfrutar de un ambiente cálido y familiar,
+				donde cada detalle está pensado para que te sientas como en casa.
+			</p>
+
+			<div class="grid md:grid-cols-2 gap-6 mt-8">
+
+				<div>
+					<Picture src={Local1} alt="Interior del restaurante" class="rounded-xl" />
+				</div>
+
+				<div>
+					<Picture src={Local2} alt="Área del restaurante" class="rounded-xl" />
+				</div>
+
+			</div>
+
+			<p class="mt-6">
+				En <strong>Sabores del Valle</strong> combinamos tradición, sabor y ambiente familiar
+				para que cada visita sea una experiencia única.
+			</p>
+
+			<div class="mt-8">
+				<Button url="/contacto">Visítanos</Button>
+			</div>
+		</Article>
+	</Section>
+
 </Layout>

@@ -13,9 +13,19 @@ const pathname = rmTrailingSlash(Astro.url.pathname);
 <header x-data="{ open: false }" @keydown.window.escape="open = false">
 	<div class="container py-6">
 		<nav class="flex items-center justify-between" aria-label="Global">
-			<a href="/" class="-m-1.5 p-1.5">
-				<p class="font-bold text-4xl text-brand-green">Astro<span class="text-brand-red bg-brand-red/5 px-3 ml-1 rounded-lg">Pie</span></p>
-			</a>
+			<a href="/" class="-m-1.5 p-1.5 flex items-center gap-3">
+			<span class="text-4xl">🍽️</span>
+
+			<div>
+				<h1 class="font-bold text-2xl lg:text-3xl text-amber-700">
+					Sabores <span class="text-green-700">del Valle</span>
+				</h1>
+
+				<p class="text-xs text-gray-600 tracking-wider">
+					COCINA TÍPICA HONDUREÑA
+				</p>
+			</div>
+		</a>
 			<div class="flex lg:hidden">
 				<button
 					type="button"
@@ -66,7 +76,9 @@ const pathname = rmTrailingSlash(Astro.url.pathname);
 			>
 				<div class="flex items-center justify-between">
 					<a href="/" class="-m-1.5 p-1.5">
-						<p class="font-bold text-4xl text-brand-green">Astro<span class="text-brand-red">Pie</span></p>
+						<h1 class="font-bold text-3xl lg:text-4xl text-amber-700">
+							Sabores <span class="text-green-700">del Valle</span>
+						</h1>
 					</a>
 					<button type="button" class="-m-2.5 p-2.5 text-brand-red" @click="open = false">
 						<span class="sr-only">Close menu</span>

@@ -6,7 +6,19 @@ import { siteName } from "~/data/config";
 
 <footer class="bg-brand-green text-white">
 	<div class="container pt-16 pb-8">
-		<p class="text-center font-bold text-4xl text-white">Astro<span class="text-brand-red bg-white px-3 ml-1 rounded-lg">Pie</span></p>
+		<a href="/" class="-m-1.5 p-1.5 flex items-center gap-3 text-white">
+			<span class="text-4xl">🍽️</span>
+
+			<div>
+				<h1 class="font-bold text-2xl lg:text-3xl leading-tight">
+					Sabores <span class="text-yellow-300">del Valle</span>
+				</h1>
+
+				<p class="text-xs text-green-100 tracking-widest uppercase">
+					Cocina típica hondureña
+				</p>
+			</div>
+		</a>
 		<nav class="flex flex-col sm:flex-row items-center justify-center gap-x-12 gap-y-3 font-medium mt-6" aria-label="Footer">
 			{
 				menuMain.map((item) => (
