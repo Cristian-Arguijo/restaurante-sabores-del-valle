@@ -33,28 +33,31 @@ export const menuMain = [
 
 export const footerPrimary = [
     {
-        title: "Navigatie",
+        title: "Navegación",
         items: [
-            { name: "home", url: "/" },
+            { name: "Inicio", url: "/" },
+            { name: "Menú", url: "/menu" },
+            { name: "Nosotros", url: "/nosotros" },
         ],
     },
 ];
 
 export const footerSecondary = [
     {
-        title: "support",
+        title: "Visítanos",
         items: [
-            { name: "pricing", url: "/pricing" },
+            { name: "Galería", url: "/galeria" },
+            { name: "Contacto", url: "/contacto" },
+            { name: "Reservaciones", url: "/reservaciones" },
         ],
     },
 ];
 
 export const footerTertiary = [
     {
-        title: "Links",
+        title: "Legal",
         items: [
-            { name: "privacybeleid", url: '/privacy-policy' },
-            { name: "api status", url: "/api-status" },
+            { name: "Política de Privacidad", url: '/privacy-policy' },
         ],
     },
 ];

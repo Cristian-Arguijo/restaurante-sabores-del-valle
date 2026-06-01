@@ -1,19 +1,322 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import Section from "~/components/Section.astro";
-import Heading from "~/components/Heading.astro";
-import FormBook from "~/components/forms/FormBook.astro";
+import { phone, phone2 } from "~/data/config";
 ---
 
-<Layout>
-	<Section>
-		<Heading>
-			<h2 slot="heading-title" class="font-black text-brand-green h2">Book a table</h2>
-			<p slot="heading-content" class="text-pretty">
-				Reserve a table for your next meal. We'll get back to you to confirm your booking.
-			</p>
-		</Heading>
+<Layout title="Reservaciones" description="Reserva tu mesa en Sabores del Valle, Tegucigalpa. Formulario de reservación en línea para grupos y ocasiones especiales.">
 
-		<FormBook />
-	</Section>
+  <!-- Hero -->
+  <section style="background-color:#1A0A00;padding:4rem 0 3rem;">
+    <div class="container" style="text-align:center;">
+      <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.75rem;">
+        Asegura tu lugar
+      </p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#FDF6E3;margin-bottom:1rem;">
+        Reservar una Mesa
+      </h1>
+      <p style="color:#A89070;font-family:'Lora',serif;font-style:italic;font-size:1rem;max-width:480px;margin:0 auto;">
+        Llena el formulario y te confirmamos en menos de 24 horas. También puedes llamarnos directamente.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contenido -->
+  <section style="background-color:#FDF6E3;padding:5rem 0 6rem;">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+
+        <!-- Formulario (izquierda — más ancho) -->
+        <div style="lg:col-span-3;" class="lg:col-span-3">
+          <div style="background:white;border-radius:1.5rem;padding:2.5rem;border:1px solid #E8D5A0;box-shadow:0 4px 30px rgba(139,26,0,0.06);">
+            <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:#1A0A00;margin-bottom:0.5rem;">
+              Solicitud de Reservación
+            </h2>
+            <p style="color:#A89070;font-size:0.9rem;margin-bottom:2rem;font-family:'Lora',serif;">
+              Todos los campos marcados con * son obligatorios.
+            </p>
+
+            <form
+              id="reserva-form"
+              x-data="reservaForm()"
+              @submit.prevent="submitForm()"
+              novalidate
+            >
+              <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+                <!-- Nombre -->
+                <div>
+                  <label for="nombre">Nombre completo *</label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    x-model="form.nombre"
+                    placeholder="Ej. Juan Carlos Reyes"
+                    :class="errors.nombre ? 'border-red-500 ring-1 ring-red-500' : ''"
+                  />
+                  <p x-show="errors.nombre" x-text="errors.nombre" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                </div>
+
+                <!-- Email y teléfono en fila -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="email">Correo electrónico *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      x-model="form.email"
+                      placeholder="correo@ejemplo.com"
+                      :class="errors.email ? 'border-red-500 ring-1 ring-red-500' : ''"
+                    />
+                    <p x-show="errors.email" x-text="errors.email" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                  </div>
+                  <div>
+                    <label for="telefono">Teléfono *</label>
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      x-model="form.telefono"
+                      placeholder="(504) 9999-9999"
+                      :class="errors.telefono ? 'border-red-500 ring-1 ring-red-500' : ''"
+                    />
+                    <p x-show="errors.telefono" x-text="errors.telefono" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                  </div>
+                </div>
+
+                <!-- Fecha y hora -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="fecha">Fecha deseada *</label>
+                    <input
+                      type="date"
+                      id="fecha"
+                      name="fecha"
+                      x-model="form.fecha"
+                      :min="minDate"
+                      :class="errors.fecha ? 'border-red-500 ring-1 ring-red-500' : ''"
+                    />
+                    <p x-show="errors.fecha" x-text="errors.fecha" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                  </div>
+                  <div>
+                    <label for="hora">Hora deseada *</label>
+                    <select
+                      id="hora"
+                      name="hora"
+                      x-model="form.hora"
+                      :class="errors.hora ? 'border-red-500 ring-1 ring-red-500' : ''"
+                    >
+                      <option value="">Seleccionar hora</option>
+                      <option>7:00 AM</option>
+                      <option>7:30 AM</option>
+                      <option>8:00 AM</option>
+                      <option>12:00 PM</option>
+                      <option>12:30 PM</option>
+                      <option>1:00 PM</option>
+                      <option>1:30 PM</option>
+                      <option>6:00 PM</option>
+                      <option>6:30 PM</option>
+                      <option>7:00 PM</option>
+                      <option>7:30 PM</option>
+                      <option>8:00 PM</option>
+                    </select>
+                    <p x-show="errors.hora" x-text="errors.hora" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                  </div>
+                </div>
+
+                <!-- Número de personas -->
+                <div>
+                  <label for="personas">Número de personas *</label>
+                  <select
+                    id="personas"
+                    name="personas"
+                    x-model="form.personas"
+                    :class="errors.personas ? 'border-red-500 ring-1 ring-red-500' : ''"
+                  >
+                    <option value="">Seleccionar</option>
+                    <option>1 persona</option>
+                    <option>2 personas</option>
+                    <option>3 personas</option>
+                    <option>4 personas</option>
+                    <option>5-6 personas</option>
+                    <option>7-10 personas</option>
+                    <option>Más de 10 (grupo)</option>
+                  </select>
+                  <p x-show="errors.personas" x-text="errors.personas" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                </div>
+
+                <!-- Ocasión especial -->
+                <div>
+                  <label for="ocasion">Ocasión especial (opcional)</label>
+                  <select id="ocasion" name="ocasion" x-model="form.ocasion">
+                    <option value="">Ninguna en particular</option>
+                    <option>Cumpleaños</option>
+                    <option>Aniversario</option>
+                    <option>Reunión de negocios</option>
+                    <option>Evento familiar</option>
+                    <option>Otra celebración</option>
+                  </select>
+                </div>
+
+                <!-- Notas -->
+                <div>
+                  <label for="notas">Notas adicionales (opcional)</label>
+                  <textarea
+                    id="notas"
+                    name="notas"
+                    x-model="form.notas"
+                    rows="3"
+                    placeholder="Alergias, preferencias de mesa, solicitudes especiales..."
+                  ></textarea>
+                </div>
+
+                <!-- Aviso -->
+                <div style="background:#FFF8F0;border:1px solid #E8D5A0;border-radius:0.75rem;padding:0.85rem 1rem;font-size:0.8rem;color:#6B4020;font-family:'Lora',serif;">
+                  ℹ️ Te confirmaremos tu reservación por correo electrónico o teléfono dentro de las próximas 24 horas. No garantizamos disponibilidad sin confirmación previa.
+                </div>
+
+                <!-- Submit -->
+                <button
+                  type="submit"
+                  class="button button-red"
+                  style="padding-top:0.9rem;padding-bottom:0.9rem;font-size:1rem;"
+                  :disabled="loading"
+                >
+                  <span x-show="!loading">Solicitar Reservación →</span>
+                  <span x-show="loading" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+                    <span class="loader"></span> Enviando...
+                  </span>
+                </button>
+
+                <!-- Éxito -->
+                <div
+                  x-show="success"
+                  x-transition
+                  style="background:#D1FAE5;border:1px solid #10B981;border-radius:0.75rem;padding:1rem;text-align:center;color:#065F46;font-weight:600;"
+                >
+                  ✅ ¡Solicitud enviada! Te contactaremos pronto para confirmar.
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Info lateral (derecha) -->
+        <div class="lg:col-span-2" style="display:flex;flex-direction:column;gap:1.25rem;">
+          <!-- Llamar directamente -->
+          <div style="background:white;border-radius:1.25rem;padding:1.75rem;border:1px solid #E8D5A0;">
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1A0A00;margin-bottom:1rem;">
+              📞 Reservar por Teléfono
+            </h3>
+            <p style="color:#6B4020;font-size:0.9rem;margin-bottom:1rem;font-family:'Lora',serif;">
+              Si prefieres hablar directamente con nosotros:
+            </p>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+              <a href={phone.href} style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#FFF8F0;border-radius:0.75rem;border:1px solid #E8D5A0;color:#8B1A00;font-weight:600;font-family:'Lora',serif;text-decoration:none;" class="hover:bg-red-50 transition">
+                📱 {phone.label}
+              </a>
+              <a href={phone2.href} style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#FFF8F0;border-radius:0.75rem;border:1px solid #E8D5A0;color:#8B1A00;font-weight:600;font-family:'Lora',serif;text-decoration:none;" class="hover:bg-red-50 transition">
+                📱 {phone2.label}
+              </a>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div style="background:#1A0A00;border-radius:1.25rem;padding:1.75rem;">
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#FDF6E3;margin-bottom:0.75rem;">
+              💬 Reservar por WhatsApp
+            </h3>
+            <p style="color:#A89070;font-size:0.9rem;margin-bottom:1rem;font-family:'Lora',serif;">
+              Escríbenos y responderemos de inmediato durante horario de atención.
+            </p>
+            <a href="https://wa.me/50498765432?text=Hola!%20Quiero%20hacer%20una%20reservaci%C3%B3n." class="button button-gold" style="display:block;text-align:center;" target="_blank">
+              Abrir WhatsApp
+            </a>
+          </div>
+
+          <!-- Tips -->
+          <div style="background:#FFF8F0;border:1px solid #E8D5A0;border-radius:1.25rem;padding:1.5rem;">
+            <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1A0A00;margin-bottom:0.75rem;">
+              💡 Tips para tu visita
+            </h3>
+            <ul style="color:#6B4020;font-size:0.85rem;line-height:1.8;list-style:none;padding:0;">
+              <li>🕐 Los fines de semana se llenan rápido — reserva con antelación.</li>
+              <li>🎂 Para celebraciones, avísanos y preparamos algo especial.</li>
+              <li>👥 Grupos de más de 8: llama directamente para mejor coordinación.</li>
+              <li>🌮 Si vienes por la sopa de caracol, disponible viernes y sábado.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    window.Alpine.data('reservaForm', () => ({
+      form: {
+        nombre: '', email: '', telefono: '', fecha: '',
+        hora: '', personas: '', ocasion: '', notas: ''
+      },
+      errors: {
+			nombre: '',
+			email: '',
+			telefono: '',
+			fecha: '',
+			hora: '',
+			personas: ''
+			},
+      loading: false,
+      success: false,
+      get minDate() {
+        const d = new Date();
+        d.setDate(d.getDate() + 1);
+        return d.toISOString().split('T')[0];
+      },
+      validate() {
+        this.errors = {
+				nombre: '',
+				email: '',
+				telefono: '',
+				fecha: '',
+				hora: '',
+				personas: ''
+				};
+        if (!this.form.nombre.trim()) this.errors.nombre = 'El nombre es obligatorio.';
+        if (!this.form.email.trim()) {
+          this.errors.email = 'El correo es obligatorio.';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.form.email)) {
+          this.errors.email = 'Ingresa un correo válido.';
+        }
+        if (!this.form.telefono.trim()) this.errors.telefono = 'El teléfono es obligatorio.';
+        if (!this.form.fecha) this.errors.fecha = 'Selecciona una fecha.';
+        if (!this.form.hora) this.errors.hora = 'Selecciona una hora.';
+        if (!this.form.personas) this.errors.personas = 'Indica el número de personas.';
+        return Object.keys(this.errors).length === 0;
+      },
+      async submitForm() {
+        if (!this.validate()) return;
+        this.loading = true;
+        // Simulate API call
+        await new Promise(r => setTimeout(r, 1500));
+        this.loading = false;
+        this.success = true;
+        this.form = { nombre:'',email:'',telefono:'',fecha:'',hora:'',personas:'',ocasion:'',notas:'' };
+        this.errors = {
+			nombre: '',
+			email: '',
+			telefono: '',
+			fecha: '',
+			hora: '',
+			personas: ''
+			};
+        setTimeout(() => { this.success = false; }, 6000);
+      }
+    }));
+  });
+</script>

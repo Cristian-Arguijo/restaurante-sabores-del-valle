@@ -1,88 +1,133 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import Section from "~/components/Section.astro";
-import Hero from "~/components/Hero.astro";
-import { Picture } from "astro:assets";
-import Badge from "~/components/Badge.astro";
-import Button from "~/components/Button.astro";
-import ButtonCallUs from "~/components/ButtonCallUs.astro";
-import Article from "~/components/Article.astro";
-
-// Images
-import PizzaHero from "~/assets/images/pizza-hero.png";
 ---
 
-<Layout>
-	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<Badge title="il ristorante italiana" />
-				<h1 class="font-black">Real Italian food in a real Italian restaurant...</h1>
+<Layout title="Nosotros" description="Conoce la historia de Sabores del Valle, el restaurante hondureño con más de 25 años de tradición en Tegucigalpa.">
 
-				<p>
-					Experience the taste of Italy with our authentic dishes made from the finest ingredients. Indulge in
-					our wide variety of pizzas, pastas, and desserts, all crafted with love and tradition. Whether
-					you're dining in or taking out, we promise a memorable culinary experience.
-				</p>
+  <!-- Hero -->
+  <section style="background-color:#1A0A00;padding:4rem 0 3rem;">
+    <div class="container" style="text-align:center;">
+      <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.75rem;">
+        Quiénes Somos
+      </p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#FDF6E3;margin-bottom:1rem;">
+        Nuestra Historia
+      </h1>
+      <div style="width:60px;height:3px;background:#C8922A;margin:0 auto;border-radius:999px;"></div>
+    </div>
+  </section>
 
-				<span class="text-brand-green font-medium">✔ We also deliver</span>
+  <!-- Historia principal -->
+  <section style="background-color:#FDF6E3;padding:5rem 0;">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.75rem;">
+            Desde 1998
+          </p>
+          <h2 style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#1A0A00;margin-bottom:1.25rem;">
+            Un Sueño que Nació en el Corazón del Valle
+          </h2>
+          <div style="font-family:'Lora',Georgia,serif;color:#3D2010;font-size:1rem;line-height:1.9;">
+            <p style="margin-bottom:1rem;">
+              Todo comenzó con Doña Carmen Reyes y una pequeña cocina en el Barrio Abajo de Tegucigalpa. Con apenas cinco mesas y las recetas heredadas de su madre en Santa Bárbara, Carmen decidió llevar los sabores del campo hondureño a la ciudad.
+            </p>
+            <p style="margin-bottom:1rem;">
+              Lo que empezó como un humilde comedor se convirtió, año tras año, en uno de los restaurantes más queridos de la capital. La sazón de Carmen, combinada con ingredientes frescos y la calidez de su familia, creó una experiencia que los comensales nunca olvidaron.
+            </p>
+            <p>
+              Hoy, 25 años después, sus hijos y nietos mantienen viva esa tradición. Las mismas recetas, la misma pasión, y el mismo amor por la cocina hondureña que hizo famosa a Sabores del Valle.
+            </p>
+          </div>
+          <blockquote style="border-left:4px solid #C8922A;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#6B4020;font-family:'Lora',serif;">
+            "La comida hondureña no necesita adornos. Solo ingredientes buenos, fuego lento y el corazón puesto en lo que se hace."
+            <footer style="margin-top:0.5rem;font-style:normal;font-weight:600;color:#8B1A00;font-size:0.9rem;">— Doña Carmen Reyes</footer>
+          </blockquote>
+        </div>
+        <!-- Visual -->
+        <div>
+          <div style="background:linear-gradient(135deg,#3D1A00,#1A0A00);border-radius:2rem;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:6rem;border:2px solid rgba(200,146,42,0.3);position:relative;overflow:hidden;">
+            <div style="position:absolute;top:1.5rem;left:1.5rem;background:#C8922A;border-radius:999px;padding:0.4rem 1rem;">
+              <span style="color:white;font-size:0.75rem;font-weight:700;letter-spacing:0.05em;">Est. 1998</span>
+            </div>
+            🏡
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-				<div class="mt-8 flex items-center gap-x-8">
-					<Button url="/book">Book now</Button>
-					<ButtonCallUs />
-				</div>
-			</div>
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={PizzaHero}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-					loading={"eager"}
-					fetchpriority={"high"}
-				/>
-			</div>
-		</Hero>
-	</Section>
+  <!-- Nuestros Valores -->
+  <section style="background-color:#3D1A00;padding:5rem 0;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#FDF6E3;margin-bottom:0.75rem;">
+          Lo que Nos Define
+        </h2>
+        <div style="width:60px;height:3px;background:#C8922A;margin:0 auto;border-radius:999px;"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { emoji: "🌿", title: "Ingredientes Frescos", desc: "Compramos cada mañana en los mercados locales de Tegucigalpa. La frescura de los ingredientes es el secreto de nuestra sazón." },
+          { emoji: "📜", title: "Recetas Ancestrales", desc: "Nuestras preparaciones siguen siendo las mismas de hace 25 años. Ninguna se improvisa, cada una se hereda con respeto y cariño." },
+          { emoji: "🤝", title: "Atención Familiar", desc: "Tratamos a cada cliente como un miembro más de la familia. Porque así es Honduras: con calidez y hospitalidad genuina." },
+          { emoji: "🇭🇳", title: "Orgullo Hondureño", desc: "Celebramos la riqueza culinaria de nuestro país en cada platillo. Somos embajadores de la cocina hondureña en la capital." },
+          { emoji: "♻️", title: "Responsabilidad Social", desc: "Apoyamos a productores locales y comunidades del interior del país. Nuestra cadena de suministro es 100% hondureña." },
+          { emoji: "⭐", title: "Calidad Constante", desc: "Cada día buscamos superar las expectativas de nuestros comensales. La excelencia no es un evento, es un hábito." },
+        ].map(item => (
+          <div style="text-align:center;padding:2rem;">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">{item.emoji}</div>
+            <h3 style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:1.2rem;font-weight:700;margin-bottom:0.6rem;">{item.title}</h3>
+            <p style="color:#A89070;font-size:0.9rem;line-height:1.7;">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-	<Section class:list={'bg-white'}>
-		<Article>
-			<h2>Welcome to AstroPie</h2>
-			<p>
-				Nestled in the heart of the city, <strong>AstroPie</strong> offers an authentic Italian dining experience
-				like no other. From the moment you step through our doors, you'll be transported to the vibrant streets of
-				Italy, where good food and great company are at the center of life.
-			</p>
+  <!-- Equipo -->
+  <section style="background-color:#FDF6E3;padding:5rem 0;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.5rem;">
+          Las Personas Detrás del Sabor
+        </p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:#1A0A00;">
+          Nuestro Equipo
+        </h2>
+        <div style="width:60px;height:3px;background:#C8922A;margin:1rem auto;border-radius:999px;"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          { emoji: "👩‍🍳", nombre: "Doña Carmen Reyes", cargo: "Fundadora & Chef Principal", desc: "El alma de Sabores del Valle. 50 años cocinando con amor." },
+          { emoji: "👨‍🍳", nombre: "José Antonio Reyes", cargo: "Chef Ejecutivo", desc: "Hijo de Carmen, formado en las mejores cocinas de Honduras." },
+          { emoji: "👩‍💼", nombre: "María Elena Reyes", cargo: "Gerente General", desc: "Mantiene la armonía del restaurante con dedicación y sonrisa." },
+          { emoji: "👨‍🍳", nombre: "Carlos Pineda", cargo: "Chef de Mariscos", desc: "Especialista en la sopa de caracol y platillos de la costa." },
+        ].map(item => (
+          <div style="text-align:center;">
+            <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#3D1A00,#8B1A00);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:0 auto 1rem;border:3px solid #C8922A;">
+              {item.emoji}
+            </div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#1A0A00;margin-bottom:0.25rem;">{item.nombre}</h3>
+            <p style="color:#8B1A00;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">{item.cargo}</p>
+            <p style="color:#6B4020;font-size:0.85rem;line-height:1.6;">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-			<h3>Our Story</h3>
-			<p>
-				Founded in <em>1998</em>, our family-owned restaurant has always been a labor of love. Inspired by the
-				recipes passed down through generations, we bring the <u>rich culinary heritage</u> of Italy to your plate.
-				Every dish tells a story, and every meal is a celebration of flavor.
-			</p>
+  <!-- CTA -->
+  <section style="background-color:#1A0A00;padding:4rem 0;">
+    <div class="container" style="text-align:center;">
+      <h2 style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:2rem;font-weight:900;margin-bottom:1rem;">
+        Ven a Ser Parte de Nuestra Historia
+      </h2>
+      <p style="color:#A89070;margin-bottom:2rem;font-family:'Lora',serif;max-width:480px;margin-left:auto;margin-right:auto;">
+        Cada visita a Sabores del Valle es una nueva página en nuestra historia compartida.
+      </p>
+      <a href="/reservaciones" class="button button-gold">Reservar una Mesa</a>
+    </div>
+  </section>
 
-			<h3>Our Philosophy</h3>
-			<blockquote>"The secret ingredient is always love."</blockquote>
-			<p>
-				At AstroPie, we believe in the simple joy of fresh ingredients, time-honored techniques, and a
-				passion for creating memorable meals. From our hand-rolled pasta to our wood-fired pizzas, every bite is
-				crafted with care.
-			</p>
-
-			<h4>What Makes Us Special?</h4>
-			<ul>
-				<li><strong>Authenticity:</strong> Traditional recipes, just like Nonna used to make.</li>
-				<li><strong>Fresh Ingredients:</strong> Locally sourced produce and imported Italian staples.</li>
-				<li><strong>Warm Atmosphere:</strong> A place where everyone feels like family.</li>
-			</ul>
-
-			<h3>Join Us</h3>
-			<p>
-				Whether you're celebrating a special occasion or simply indulging in the pleasures of Italian cuisine, <strong
-					>AstroPie</strong
-				> is the perfect destination. <em>Come for the food, stay for the memories.</em>
-			</p>
-		</Article>
-	</Section>
 </Layout>

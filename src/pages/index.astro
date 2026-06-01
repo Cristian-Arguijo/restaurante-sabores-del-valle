@@ -1,315 +1,232 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import Section from "~/components/Section.astro";
-import Hero from "~/components/Hero.astro";
-import { Picture, Image } from "astro:assets";
-import Badge from "~/components/Badge.astro";
-import Button from "~/components/Button.astro";
-import ButtonCallUs from "~/components/ButtonCallUs.astro";
-import Grid from "~/components/Grid.astro";
-import Heading from "~/components/Heading.astro";
-import WideImage from "~/components/WideImage.astro";
 import ReviewSlider from "~/components/ReviewSlider.astro";
-
-// Images
-import PizzaHero from "~/assets/images/pizza-hero.png";
-import Pizza from "~/assets/images/pizza.png";
-import Spaghetti from "~/assets/images/spaghetti.png";
-import Fish from "~/assets/images/fish.png";
-import DecorativeImage from "~/assets/images/pexels-shvetsa-5953523.jpg";
-import reviewAuthors from "~/assets/images/review-authors.png";
-import Dessert from "~/assets/images/dessert.png";
-import Mussels from "~/assets/images/mussels2.png";
+import { hours, phone, address } from "~/data/config";
 ---
 
-<Layout title="Home" pageTitle="Home" description="Welcome to our restaurant!">
-	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<Badge title="il ristorante italiana" />
-				<h1 class="font-black">Real Italian food in a real Italian restaurant...</h1>
+<Layout
+  title="Inicio"
+  description="Sabores del Valle — Cocina hondureña auténtica en Tegucigalpa. Baleadas, sopa de caracol, platos típicos y más."
+>
 
-				<p>
-					Experience the taste of Italy with our authentic dishes made from the finest ingredients. Indulge in
-					our wide variety of pizzas, pastas, and desserts, all crafted with love and tradition. Whether
-					you're dining in or taking out, we promise a memorable culinary experience.
-				</p>
+  <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+  <section style="background-color:#1A0A00;position:relative;overflow:hidden;">
+    <!-- Decorative pattern background -->
+    <div style="position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,#C8922A 0,#C8922A 1px,transparent 0,transparent 50%);background-size:20px 20px;"></div>
+    
+    <div class="container" style="padding-top:5rem;padding-bottom:5rem;position:relative;z-index:1;">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Text -->
+        <div>
+          <div style="display:inline-block;background:#C8922A22;border:1px solid #C8922A55;border-radius:999px;padding:0.3rem 1rem;margin-bottom:1.5rem;">
+            <span style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;font-family:'Lora',serif;">
+              🇭🇳 Tegucigalpa, Honduras
+            </span>
+          </div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#FDF6E3;line-height:1.1;margin-bottom:1.5rem;">
+            El Sabor Auténtico<br/>
+            <span style="color:#C8922A;">de Honduras</span><br/>
+            en tu Mesa
+          </h1>
+          <p style="color:#A89070;font-size:1.1rem;line-height:1.8;margin-bottom:2rem;font-family:'Lora',serif;">
+            Baleadas artesanales, sopa de caracol, pollo chuco y los platillos más queridos de nuestra tierra. Cocina hondureña con el sabor de siempre, hecha con amor y tradición desde 1998.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+            <a href="/menu" class="button button-gold">
+              Ver Menú Completo
+            </a>
+            <a href="/reservaciones" class="button button-outline" style="border-color:#C8922A;color:#C8922A;">
+              Reservar Mesa
+            </a>
+          </div>
+          <!-- Stats -->
+          <div style="display:flex;gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(200,146,42,0.25);">
+            <div>
+              <p style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#C8922A;">25+</p>
+              <p style="color:#A89070;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Años de Tradición</p>
+            </div>
+            <div>
+              <p style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#C8922A;">50+</p>
+              <p style="color:#A89070;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Platillos</p>
+            </div>
+            <div>
+              <p style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#C8922A;">★ 4.9</p>
+              <p style="color:#A89070;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Calificación</p>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Visual -->
+        <div style="position:relative;">
+          <!-- Big emoji visual placeholder (replace with actual image) -->
+          <div style="width:100%;aspect-ratio:4/3;background:radial-gradient(circle at 40% 40%,#3D1A00,#1A0A00);border-radius:2rem;border:2px solid rgba(200,146,42,0.3);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 60%,rgba(200,146,42,0.15),transparent);"></div>
+            🍽️
+            <!-- Featured dish badge -->
+            <div style="position:absolute;bottom:1.5rem;left:1.5rem;background:#8B1A00;border-radius:1rem;padding:0.75rem 1.25rem;">
+              <p style="color:#FDF6E3;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Platillo estrella</p>
+              <p style="color:#FDF6E3;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;">Sopa de Caracol</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-				<span class="text-brand-green font-medium">✔ We also deliver</span>
+  <!-- ═══════════════════════════ DESTACADOS ═══════════════════════════ -->
+  <section style="background-color:#FDF6E3;padding:5rem 0;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.5rem;">
+          Nuestros Clásicos
+        </p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#1A0A00;">
+          Platillos que te Enamorarán
+        </h2>
+        <div style="width:60px;height:3px;background:#C8922A;margin:1rem auto;border-radius:999px;"></div>
+      </div>
 
-				<div class="mt-8 flex items-center gap-x-8">
-					<Button url="/book">Book now</Button>
-					<ButtonCallUs />
-				</div>
-			</div>
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={PizzaHero}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-					loading={"eager"}
-					fetchpriority={"high"}
-				/>
-			</div>
-		</Hero>
-	</Section>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { emoji: "🌮", name: "Baleadas Artesanales", desc: "La reina de la cocina hondureña. Tortilla de harina suave con frijoles, queso y crema. Disponible en múltiples versiones.", tag: "Desde L. 35", color: "#8B1A00" },
+          { emoji: "🦪", name: "Sopa de Caracol", desc: "Nuestra especialidad caribeña. Caracol tierno en leche de coco con yuca y plátano. Sabor único que no encontrarás en otro lugar.", tag: "Especialidad", color: "#C8922A" },
+          { emoji: "🍗", name: "Pollo Chuco", desc: "Pollo frito al estilo hondureño con tajadas de plátano verde, repollo crujiente y la salsa de la casa.", tag: "El favorito", color: "#2D5016" },
+          { emoji: "🫔", name: "Pastelitos de Carne", desc: "Pastelitos fritos rellenos de carne molida y verduras. El antojito perfectos para comenzar tu visita.", tag: "Entradas", color: "#8B1A00" },
+          { emoji: "🍌", name: "Tajadas con Pollo", desc: "Plátano maduro frito, suave y caramelizado, acompañado de pollo asado y repollo fresco.", tag: "Clásico", color: "#C8922A" },
+          { emoji: "🍮", name: "Tres Leches", desc: "Bizcocho suave empapado en tres leches con crema chantilly. El postre más amado de Honduras.", tag: "Postres", color: "#2D5016" },
+        ].map(item => (
+          <div style={`background:white;border-radius:1.25rem;overflow:hidden;border:1px solid #E8D5A0;transition:transform 0.2s,box-shadow 0.2s;`}
+               class="hover:-translate-y-1 hover:shadow-lg">
+            <div style={`background:linear-gradient(135deg,${item.color}15,${item.color}05);padding:2rem;text-align:center;font-size:3.5rem;`}>
+              {item.emoji}
+            </div>
+            <div style="padding:1.25rem 1.5rem 1.5rem;">
+              <div style={`display:inline-block;background:${item.color}15;color:${item.color};border-radius:999px;padding:0.15rem 0.75rem;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;`}>
+                {item.tag}
+              </div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1A0A00;margin-bottom:0.5rem;">
+                {item.name}
+              </h3>
+              <p style="color:#6B4020;font-size:0.88rem;line-height:1.6;">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-	<WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[16/6]"} />
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="/menu" class="button button-red">
+          Ver Menú Completo →
+        </a>
+      </div>
+    </div>
+  </section>
 
-	<Section class:list={"bg-white"}>
-		<Heading>
-			<h2 slot="heading-title" class="font-black text-brand-green h2">Our dishes</h2>
-			<p slot="heading-content">
-				Explore our selection of authentic Italian dishes, from classic pizzas to homemade pastas.
-			</p>
-		</Heading>
+  <!-- ═══════════════════════════ NOSOTROS BANNER ═══════════════════════ -->
+  <section style="background-color:#3D1A00;padding:5rem 0;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;opacity:0.05;background-image:repeating-linear-gradient(-45deg,#C8922A 0,#C8922A 1px,transparent 0,transparent 50%);background-size:20px 20px;"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.75rem;">
+            Nuestra Historia
+          </p>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#FDF6E3;margin-bottom:1.25rem;">
+            25 Años Sirviendo lo Mejor de Honduras
+          </h2>
+          <p style="color:#D4B896;font-size:1rem;line-height:1.85;margin-bottom:1rem;font-family:'Lora',serif;">
+            Desde 1998, la familia Reyes ha llevado los sabores auténticos del campo hondureño a la capital. Comenzamos como un pequeño comedor en el Barrio Abajo y hoy somos un referente de la gastronomía tradicional de Tegucigalpa.
+          </p>
+          <p style="color:#A89070;font-size:0.95rem;line-height:1.8;font-family:'Lora',serif;font-style:italic;">
+            "Cocinamos con los mismos ingredientes y la misma pasión de siempre. Porque la sazón de Honduras no se improvisa, se hereda."
+          </p>
+          <p style="color:#C8922A;margin-top:0.5rem;font-size:0.85rem;font-weight:600;">— Doña Carmen Reyes, fundadora</p>
+          <a href="/nosotros" class="button button-gold" style="margin-top:2rem;display:inline-block;">
+            Conoce Nuestra Historia
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { emoji: "🌿", title: "Ingredientes frescos", desc: "Directamente de los mercados locales y del campo hondureño." },
+            { emoji: "👨‍🍳", title: "Recetas ancestrales", desc: "Preparaciones heredadas de generación en generación." },
+            { emoji: "❤️", title: "Hecho con amor", desc: "Cada platillo lleva el cariño de nuestra familia para la tuya." },
+            { emoji: "🏡", title: "Ambiente familiar", desc: "Un espacio acogedor donde todos se sienten como en casa." },
+          ].map(item => (
+            <div style="background:rgba(200,146,42,0.1);border:1px solid rgba(200,146,42,0.2);border-radius:1rem;padding:1.5rem;">
+              <div style="font-size:2rem;margin-bottom:0.75rem;">{item.emoji}</div>
+              <h4 style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;">{item.title}</h4>
+              <p style="color:#A89070;font-size:0.8rem;line-height:1.5;">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<Grid>
-			<div slot="grid-content-1">
-				<div class="flex flex-col items-center prose text-center">
-					<Picture
-						class:list={"not-prose w-full h-auto"}
-						src={Pizza}
-						formats={["avif", "webp"]}
-						alt="A description of my image."
-					/>
-					<h3 class="h4 mt-0 font-black">Pasta &amp; Spaghetti</h3>
-					<p>
-						Pasta is a staple of Italian cuisine, with a rich history dating back centuries. It comes in
-						various shapes and sizes, each suited to different sauces and preparations.
-					</p>
-				</div>
-			</div>
+  <!-- ═══════════════════════════ TESTIMONIOS ═══════════════════════════ -->
+  <section style="background-color:#FDF6E3;padding:5rem 0;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.5rem;">
+          Testimonios
+        </p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.75rem);font-weight:900;color:#1A0A00;">
+          Lo Que Dicen Nuestros Clientes
+        </h2>
+        <div style="width:60px;height:3px;background:#C8922A;margin:1rem auto;border-radius:999px;"></div>
+      </div>
+      <div style="max-width:700px;margin:0 auto;">
+        <ReviewSlider />
+      </div>
+    </div>
+  </section>
 
-			<div slot="grid-content-2">
-				<div class="flex flex-col items-center prose text-center">
-					<Picture
-						class:list={"not-prose w-full h-auto"}
-						src={Spaghetti}
-						formats={["avif", "webp"]}
-						alt="A description of my image."
-					/>
-					<h3 class="h4 mt-0 font-black">Pasta &amp; Spaghetti</h3>
-					<p>
-						Pasta is a staple of Italian cuisine, with a rich history dating back centuries. It comes in
-						various shapes and sizes, each suited to different sauces and preparations.
-					</p>
-				</div>
-			</div>
+  <!-- ═══════════════════════════ HORARIOS & CTA ═══════════════════════ -->
+  <section style="background-color:#1A0A00;padding:5rem 0;">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <!-- Horarios -->
+        <div>
+          <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.75rem;">
+            Cuándo Visitarnos
+          </p>
+          <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#FDF6E3;margin-bottom:1.5rem;">
+            Nuestros Horarios
+          </h2>
+          <div style="border:1px solid rgba(200,146,42,0.3);border-radius:1rem;overflow:hidden;">
+            {Object.entries(hours).map(([dia, hora], i) => (
+              <div style={`display:flex;justify-content:space-between;padding:0.85rem 1.25rem;${i % 2 === 0 ? 'background:rgba(200,146,42,0.05)' : ''};${i < Object.entries(hours).length - 1 ? 'border-bottom:1px solid rgba(200,146,42,0.15)' : ''};`}>
+                <span style="font-weight:600;color:#D4B896;text-transform:capitalize;font-family:'Lora',serif;font-size:0.95rem;">{dia}</span>
+                <span style="color:#A89070;font-size:0.9rem;">{hora}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <!-- CTA reserva -->
+        <div style="background:radial-gradient(circle at 70% 30%,rgba(200,146,42,0.15),transparent);border:1px solid rgba(200,146,42,0.3);border-radius:1.5rem;padding:2.5rem;">
+          <div style="font-size:3rem;margin-bottom:1rem;">📅</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:#FDF6E3;margin-bottom:1rem;">
+            Reserva tu Mesa Hoy
+          </h3>
+          <p style="color:#A89070;line-height:1.8;margin-bottom:1.5rem;font-family:'Lora',serif;">
+            Asegura tu lugar y disfruta de una experiencia gastronómica sin igual. Perfecta para reuniones familiares, celebraciones y eventos especiales.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <a href="/reservaciones" class="button button-gold" style="text-align:center;">
+              Hacer una Reservación
+            </a>
+            <a href={`https://wa.me/50498765432`} class="button button-outline" style="border-color:rgba(200,146,42,0.5);color:#C8922A;text-align:center;">
+              💬 WhatsApp: (504) 9876-5432
+            </a>
+          </div>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(200,146,42,0.2);">
+            <p style="color:#6B5030;font-size:0.8rem;text-align:center;">
+              📍 {address.street}, {address.city}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			<div slot="grid-content-3">
-				<div class="flex flex-col items-center prose text-center">
-					<Picture
-						class:list={"not-prose w-full h-auto"}
-						src={Fish}
-						formats={["avif", "webp"]}
-						alt="A description of my image."
-					/>
-					<h3 class="h4 mt-0 font-black">Pasta &amp; Spaghetti</h3>
-					<p>
-						Pasta is a staple of Italian cuisine, with a rich history dating back centuries. It comes in
-						various shapes and sizes, each suited to different sauces and preparations.
-					</p>
-				</div>
-			</div>
-		</Grid>
-	</Section>
-
-	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose lg:order-2">
-				<h1 class="font-black">Pizza</h1>
-
-				<p>
-					Pizza is a beloved dish that originated in Italy and has since become a global sensation. Its
-					versatility allows for endless combinations of toppings, from classic margherita with fresh
-					tomatoes, mozzarella, and basil, to more adventurous options like barbecue chicken or vegan cheese.
-				</p>
-
-				<p>
-					Whether enjoyed at a cozy pizzeria or delivered to your doorstep, pizza brings people together and
-					satisfies cravings like no other food. Beyond its delicious taste, pizza also holds cultural
-					significance. It is often associated with gatherings, celebrations, and comfort.
-				</p>
-
-				<div class="mt-8">
-					<Button url="/menu">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-							class="size-5 inline-block"
-							aria-hidden="true"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-								clip-rule="evenodd"></path>
-						</svg>
-						View menu
-					</Button>
-				</div>
-			</div>
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={PizzaHero}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-			</div>
-		</Hero>
-	</Section>
-
-	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<Badge color="red" title="delicious" />
-				<h2 class="font-black h2 !my-4">Plate of the week</h2>
-
-				<span class="text-brand-red text-2xl font-bold italic">Fresh Mussels!</span>
-
-				<p>
-					Our plate of the week is a delicious dish that changes every week. This week, we're featuring fresh
-					mussels cooked in a white wine and garlic sauce, served with a side of crispy fries. Don't miss out
-					on this limited-time offer!
-				</p>
-
-				<div class="mt-8">
-					<Button color="red" url="/book">Book now</Button>
-				</div>
-			</div>
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={Mussels}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-			</div>
-		</Hero>
-	</Section>
-
-	<!-- Reviews -->
-	<Section class:list={"bg-brand-red/20 relative"}>
-		<div class="py-16">
-			<Hero>
-				<div slot="hero-content-left" class="prose max-w-none order-2">
-					<div class="text-center not-prose">
-						<Badge color="white" title="reviews" />
-					</div>
-					<h2 slot="heading-title" class="font-black h4 text-center mt-0 mb-4">What our customers say...</h2>
-					<div slot="heading-content">
-						<p class="text-center">
-							Don't just take our word for it. Read what our customers have to say about their dining
-							experience at our restaurant.
-						</p>
-
-						<ReviewSlider />
-					</div>
-				</div>
-
-				<div slot="hero-content-right">
-					<Picture src={reviewAuthors} alt="Review authors" class="w-full h-auto" />
-				</div>
-			</Hero>
-		</div>
-
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 1440 320"
-			class="absolute h-40 w-full top-0 inset-x-0 rotate-180"
-			preserveAspectRatio="none"
-			><path
-				fill="#ffffff"
-				fill-opacity="1"
-				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-			></path>
-		</svg>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 1440 320"
-			class="absolute h-40 w-full bottom-0 inset-x-0"
-			preserveAspectRatio="none"
-			><path
-				fill="#ffffff"
-				fill-opacity="1"
-				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-			></path>
-		</svg>
-	</Section>
-
-	<!-- Desserts -->
-	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none order-2">
-				<Badge title="dolce" />
-				<h2 slot="heading-title" class="font-black text-brand-green h2 !my-4">Desserts</h2>
-				<div slot="heading-content">
-					<p>
-						Indulge in our selection of sweet treats, from classic tiramisu to decadent chocolate cake. Our
-						desserts are the perfect way to end your meal on a high note.
-					</p>
-
-					<p>
-						Experience the taste of Italy with our authentic dishes made from the finest ingredients.
-						Indulge in our wide variety of pizzas, pastas, and desserts, all crafted with love and
-						tradition. Whether you're dining in or taking out, we promise a memorable culinary experience.
-					</p>
-
-					<div class="mt-8">
-						<Button url="/menu">See our menu</Button>
-					</div>
-				</div>
-			</div>
-
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={Dessert}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-			</div>
-		</Hero>
-	</Section>
-
-	<!-- Contact -->
-	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none">
-				<Badge color="red" title="benvenuto" />
-				<h2 slot="heading-title" class="font-black text-brand-red h2 !my-4">Drop by and say hello</h2>
-				<div slot="heading-content">
-					<p>
-						We're located in the heart of the city, just a stone's throw away from the main square. Our
-						restaurant is the perfect place to enjoy a delicious meal with friends and family.
-					</p>
-
-					<span class="text-brand-red font-medium">
-						✔ We also do take-away, so you can enjoy your food at home
-					</span>
-
-					<div class="mt-8">
-						<Button color="red" url="/book">Book a table</Button>
-					</div>
-				</div>
-			</div>
-
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={Dessert}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-			</div>
-		</Hero>
-	</Section>
 </Layout>

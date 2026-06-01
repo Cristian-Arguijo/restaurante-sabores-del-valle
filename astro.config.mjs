@@ -3,18 +3,14 @@ import { defineConfig } from "astro/config";
 import alpinejs from "@astrojs/alpinejs";
 import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
-import playformInline from "@playform/inline";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://astropie.netlify.app",
+    site: "https://saboresdelvalle.hn",
     base: "/",
-    // trailingSlash: 'always',
-    integrations: [alpinejs(), mdx(), (await import("@playform/inline")).default()],
+    integrations: [alpinejs(), mdx()],
     output: "static",
-    devToolbar: {
-        enabled: false,
-    },
+    devToolbar: { enabled: false },
     vite: {
         plugins: [tailwindcss()],
     },

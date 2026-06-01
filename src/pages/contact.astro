@@ -1,18 +1,225 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import Section from "~/components/Section.astro";
-import Heading from "~/components/Heading.astro";
-import FormContact from "~/components/forms/FormContact.astro";
+import { phone, phone2, email, address, socialMedia, hours } from "~/data/config";
 ---
 
-<Layout>
-	<Section>
-		<Heading>
-			<h2 slot="heading-title" class="font-black text-brand-green h2">Contact</h2>
-			<p slot="heading-content">Get in touch with us for any questions or inquiries.</p>
-		</Heading>
+<Layout title="Contacto" description="Contáctanos en Sabores del Valle — teléfonos, redes sociales, formulario de contacto y ubicación en Tegucigalpa.">
 
-        <FormContact />
-		
-	</Section>
+  <!-- Hero -->
+  <section style="background-color:#1A0A00;padding:4rem 0 3rem;">
+    <div class="container" style="text-align:center;">
+      <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.75rem;">
+        Estamos para servirte
+      </p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#FDF6E3;margin-bottom:1rem;">
+        Contáctanos
+      </h1>
+      <p style="color:#A89070;font-family:'Lora',serif;font-style:italic;">
+        Escríbenos, llámanos o ven a vernos. Siempre estamos con la mesa lista.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contacto y formulario -->
+  <section style="background-color:#FDF6E3;padding:5rem 0;">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+        <!-- Info de contacto -->
+        <div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#1A0A00;margin-bottom:2rem;">
+            Información de Contacto
+          </h2>
+
+          <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem;">
+            {[
+              { icon: "📍", title: "Dirección", value: `${address.street}, ${address.city}, ${address.state}, ${address.country}`, href: "https://maps.google.com" },
+              { icon: "📞", title: "Teléfono principal", value: phone.label, href: phone.href },
+              { icon: "📱", title: "Teléfono secundario", value: phone2.label, href: phone2.href },
+              { icon: "✉️", title: "Correo electrónico", value: email.label, href: email.href },
+              { icon: "💬", title: "WhatsApp", value: "(504) 9876-5432", href: socialMedia.whatsapp.url },
+            ].map(item => (
+              <a href={item.href} style="display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:white;border-radius:1rem;border:1px solid #E8D5A0;text-decoration:none;transition:box-shadow 0.2s;" class="hover:shadow-md">
+                <span style="font-size:1.5rem;min-width:2rem;">{item.icon}</span>
+                <div>
+                  <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#A89070;margin-bottom:0.2rem;">{item.title}</p>
+                  <p style="color:#1A0A00;font-family:'Lora',serif;font-weight:600;">{item.value}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <!-- Redes sociales -->
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#1A0A00;margin-bottom:1rem;">
+            Síguenos en Redes
+          </h3>
+          <div style="display:flex;gap:1rem;">
+            {[
+              { label: "Facebook", icon: "📘", href: socialMedia.facebook.url },
+              { label: "Instagram", icon: "📸", href: socialMedia.instagram.url },
+              { label: "WhatsApp", icon: "💬", href: socialMedia.whatsapp.url },
+            ].map(s => (
+              <a href={s.href} target="_blank" rel="noopener"
+                style="display:flex;flex-direction:column;align-items:center;gap:0.4rem;padding:1rem;background:white;border:1px solid #E8D5A0;border-radius:1rem;min-width:90px;text-decoration:none;transition:all 0.2s;"
+                class="hover:shadow-md hover:-translate-y-1">
+                <span style="font-size:1.75rem;">{s.icon}</span>
+                <span style="font-size:0.78rem;font-weight:600;color:#6B4020;font-family:'Lora',serif;">{s.label}</span>
+              </a>
+            ))}
+          </div>
+
+          <!-- Horarios -->
+          <div style="margin-top:2.5rem;background:white;border-radius:1rem;padding:1.5rem;border:1px solid #E8D5A0;">
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#1A0A00;margin-bottom:1rem;">
+              🕐 Horarios de Atención
+            </h3>
+            <table style="width:100%;border-collapse:collapse;">
+              <tbody>
+                {Object.entries(hours).map(([dia, hora], i) => (
+                  <tr style={i < Object.entries(hours).length - 1 ? 'border-bottom:1px solid #F0E5C8;' : ''}>
+                    <td style="padding:0.5rem 0;font-weight:600;color:#3D2010;text-transform:capitalize;font-family:'Lora',serif;font-size:0.9rem;">{dia}</td>
+                    <td style="padding:0.5rem 0;color:#6B4020;text-align:right;font-size:0.9rem;">{hora}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#1A0A00;margin-bottom:0.5rem;">
+            Envíanos un Mensaje
+          </h2>
+          <p style="color:#A89070;font-family:'Lora',serif;font-size:0.9rem;margin-bottom:2rem;">
+            Respondemos en menos de 24 horas en días hábiles.
+          </p>
+
+          <div style="background:white;border-radius:1.5rem;padding:2rem;border:1px solid #E8D5A0;box-shadow:0 4px 20px rgba(139,26,0,0.05);">
+            <form
+              x-data="contactForm()"
+              @submit.prevent="submitForm()"
+              novalidate
+            >
+              <div style="display:flex;flex-direction:column;gap:1.25rem;">
+                <div>
+                  <label for="c-nombre">Nombre *</label>
+                  <input type="text" id="c-nombre" x-model="form.nombre" placeholder="Tu nombre completo"
+                    :class="errors.nombre ? 'border-red-500' : ''" />
+                  <p x-show="errors.nombre" x-text="errors.nombre" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                </div>
+
+                <div>
+                  <label for="c-email">Correo electrónico *</label>
+                  <input type="email" id="c-email" x-model="form.email" placeholder="correo@ejemplo.com"
+                    :class="errors.email ? 'border-red-500' : ''" />
+                  <p x-show="errors.email" x-text="errors.email" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                </div>
+
+                <div>
+                  <label for="c-asunto">Asunto</label>
+                  <select id="c-asunto" x-model="form.asunto">
+                    <option value="">Seleccionar asunto</option>
+                    <option>Consulta general</option>
+                    <option>Reservación de grupo</option>
+                    <option>Evento privado</option>
+                    <option>Sugerencia o comentario</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="c-mensaje">Mensaje *</label>
+                  <textarea id="c-mensaje" x-model="form.mensaje" rows="5" placeholder="¿En qué podemos ayudarte?"
+                    :class="errors.mensaje ? 'border-red-500' : ''"></textarea>
+                  <p x-show="errors.mensaje" x-text="errors.mensaje" style="color:#DC2626;font-size:0.8rem;margin-top:0.25rem;"></p>
+                </div>
+
+                <button type="submit" class="button button-red" style="padding-top:0.9rem;padding-bottom:0.9rem;" :disabled="loading">
+                  <span x-show="!loading">Enviar Mensaje →</span>
+                  <span x-show="loading">Enviando...</span>
+                </button>
+
+                <div x-show="success" x-transition style="background:#D1FAE5;border:1px solid #10B981;border-radius:0.75rem;padding:1rem;text-align:center;color:#065F46;font-weight:600;">
+                  ✅ ¡Mensaje enviado! Te responderemos pronto.
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapa -->
+  <section style="background-color:#1A0A00;padding:0;">
+    <div style="width:100%;background:#3D1A00;height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+      <!-- Aquí va el Google Maps iframe real -->
+      <div style="position:absolute;inset:0;opacity:0.1;background-image:repeating-linear-gradient(0deg,#C8922A 0,#C8922A 1px,transparent 0,transparent 40px),repeating-linear-gradient(90deg,#C8922A 0,#C8922A 1px,transparent 0,transparent 40px);"></div>
+      <div style="text-align:center;position:relative;z-index:1;">
+        <div style="font-size:3rem;margin-bottom:1rem;">📍</div>
+        <p style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">
+          Sabores del Valle
+        </p>
+        <p style="color:#A89070;font-family:'Lora',serif;margin-bottom:1.5rem;">
+          Blvd. Morazán, Col. Palmira, Tegucigalpa
+        </p>
+        <a href="https://maps.google.com/?q=Tegucigalpa+Honduras" target="_blank" rel="noopener" class="button button-gold">
+          Ver en Google Maps
+        </a>
+        <p style="color:#6B5030;font-size:0.75rem;margin-top:1rem;font-style:italic;">
+          Reemplaza esto con un iframe de Google Maps real
+        </p>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    window.Alpine.data('contactForm', () => ({
+      form: { nombre: '', email: '', asunto: '', mensaje: '' },
+      errors: {
+		nombre: '',
+		email: '',
+		asunto: '',
+		mensaje: ''
+		},
+      loading: false,
+      success: false,
+      validate() {
+        this.errors = {
+				nombre: '',
+				email: '',
+				asunto: '',
+				mensaje: ''
+				};
+        if (!this.form.nombre.trim()) this.errors.nombre = 'El nombre es obligatorio.';
+        if (!this.form.email.trim()) {
+          this.errors.email = 'El correo es obligatorio.';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.form.email)) {
+          this.errors.email = 'Ingresa un correo válido.';
+        }
+        if (!this.form.mensaje.trim()) this.errors.mensaje = 'El mensaje es obligatorio.';
+        return Object.keys(this.errors).length === 0;
+      },
+      async submitForm() {
+        if (!this.validate()) return;
+        this.loading = true;
+        await new Promise(r => setTimeout(r, 1200));
+        this.loading = false;
+        this.success = true;
+        this.form = { nombre: '', email: '', asunto: '', mensaje: '' };
+        this.errors = {
+				nombre: '',
+				email: '',
+				asunto: '',
+				mensaje: ''
+				};
+        setTimeout(() => { this.success = false; }, 6000);
+      }
+    }));
+  });
+</script>

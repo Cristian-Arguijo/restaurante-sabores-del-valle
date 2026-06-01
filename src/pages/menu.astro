@@ -1,19 +1,46 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import Section from "~/components/Section.astro";
-import Heading from "~/components/Heading.astro";
 import MenuList from "~/components/Menu.astro";
 ---
 
-<Layout>
-	<Section>
-		<Heading>
-			<h1 slot="heading-title" class="font-black text-brand-green h2">Our menu</h1>
-			<p slot="heading-content">
-				We offer a variety of dishes, from traditional to modern, that are sure to satisfy your cravings.
-			</p>
-		</Heading>
+<Layout title="Menú" description="Menú completo de Sabores del Valle — Baleadas, sopa de caracol, pollo chuco, tajadas y más platillos hondureños auténticos.">
 
-		<MenuList />
-	</Section>
+  <!-- Hero de página -->
+  <section style="background-color:#1A0A00;padding:4rem 0 3rem;">
+    <div class="container" style="text-align:center;">
+      <p style="color:#C8922A;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lora',serif;margin-bottom:0.75rem;">
+        Cocina Hondureña
+      </p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#FDF6E3;margin-bottom:1rem;">
+        Nuestro Menú
+      </h1>
+      <p style="color:#A89070;font-size:1rem;max-width:500px;margin:0 auto;font-family:'Lora',serif;font-style:italic;">
+        De las baleadas de cada mañana a la sopa de caracol del fin de semana. Todo hecho con ingredientes frescos y la receta de siempre.
+      </p>
+    </div>
+  </section>
+
+  <!-- Menú -->
+  <section style="background-color:#FDF6E3;padding:4rem 0 6rem;">
+    <div class="container">
+      <MenuList />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background-color:#3D1A00;padding:4rem 0;">
+    <div class="container" style="text-align:center;">
+      <h2 style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:2rem;font-weight:900;margin-bottom:1rem;">
+        ¿Listo para Saborear Honduras?
+      </h2>
+      <p style="color:#A89070;margin-bottom:2rem;font-family:'Lora',serif;">
+        Reserva tu mesa o contáctanos para eventos especiales y grupos.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/reservaciones" class="button button-gold">Reservar Mesa</a>
+        <a href="/contacto" class="button button-outline" style="border-color:#C8922A;color:#C8922A;">Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>

@@ -6,99 +6,86 @@ const rmTrailingSlash = (path: string): string => {
     ? path.slice(0, path.length - 1) 
     : path;
 }
-
 const pathname = rmTrailingSlash(Astro.url.pathname);
 ---
 
-<header x-data="{ open: false }" @keydown.window.escape="open = false">
-	<div class="container py-6">
-		<nav class="flex items-center justify-between" aria-label="Global">
-			<a href="/" class="-m-1.5 p-1.5">
-				<p class="font-bold text-4xl text-brand-green">Astro<span class="text-brand-red bg-brand-red/5 px-3 ml-1 rounded-lg">Pie</span></p>
+<header x-data="{ open: false }" @keydown.window.escape="open = false"
+  style="background-color: #1A0A00; border-bottom: 2px solid #C8922A;">
+	<div class="container py-4">
+		<nav class="flex items-center justify-between" aria-label="Navegación principal">
+			<!-- Logo -->
+			<a href="/" class="-m-1.5 p-1.5 flex items-center gap-3">
+				<div style="width:42px;height:42px;background:#C8922A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">
+					🍽️
+				</div>
+				<div>
+					<p style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;color:#FDF6E3;line-height:1.1;">
+						Sabores <span style="color:#C8922A;">del Valle</span>
+					</p>
+					<p style="font-size:0.65rem;color:#A89070;letter-spacing:0.12em;text-transform:uppercase;">
+						Cocina Hondureña Auténtica
+					</p>
+				</div>
 			</a>
+
+			<!-- Mobile toggle -->
 			<div class="flex lg:hidden">
-				<button
-					type="button"
-					class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
-					@click="open = true"
-				>
-					<span class="sr-only">Open main menu</span>
-					<svg
-						class="size-8 text-brand-green"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						aria-hidden="true"
-						data-slot="icon"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+				<button type="button" class="-m-2.5 p-2.5" @click="open = true" aria-label="Abrir menú">
+					<svg class="size-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FDF6E3">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 					</svg>
 				</button>
 			</div>
-			<div class="hidden lg:flex lg:gap-x-12 lg:items-center">
-				{
-					menuMain.map((item) => (
-						<a
-							href={item.url}
-							class={`transition text-base/6 font-semibold hover:text-brand-green ${item.highlighted ? "menu-item-highlighted" : ""} ${pathname === item.url ? "menu-item-active" : ""}`}
-						>
-							{item.name}
-						</a>
-					))
-				}
+
+			<!-- Desktop nav -->
+			<div class="hidden lg:flex lg:gap-x-8 lg:items-center">
+				{menuMain.map((item) => (
+					<a
+						href={item.url}
+						class={`transition text-sm font-semibold tracking-wide ${item.highlighted ? "menu-item-highlighted button" : "hover:text-amber-300"} ${pathname === item.url ? "menu-item-active" : ""}`}
+						style={!item.highlighted ? "color: #D4B896;" : ""}
+					>
+						{item.name}
+					</a>
+				))}
 			</div>
 		</nav>
-		<div class="lg:hidden" x-ref="dialog" x-show="open" x-cloak aria-modal="true">
+
+		<!-- Mobile menu -->
+		<div class="lg:hidden" x-show="open" x-cloak aria-modal="true">
 			<div
-				class="fixed inset-0 z-50 w-full overflow-y-auto bg-white px-8 py-6"
+				class="fixed inset-0 z-50 w-full overflow-y-auto px-6 py-6"
+				style="background-color:#1A0A00;"
 				x-show="open"
 				x-transition:enter="transition ease-out"
-				x-transition:enter-start="opacity-0"
-				x-transition:enter-end="opacity-100"
+				x-transition:enter-start="opacity-0 -translate-y-4"
+				x-transition:enter-end="opacity-100 translate-y-0"
 				x-transition:leave="transition ease-in"
 				x-transition:leave-start="opacity-100"
 				x-transition:leave-end="opacity-0"
 				x-cloak
 			>
-				<div class="flex items-center justify-between">
-					<a href="/" class="-m-1.5 p-1.5">
-						<p class="font-bold text-4xl text-brand-green">Astro<span class="text-brand-red">Pie</span></p>
+				<div class="flex items-center justify-between mb-10">
+					<a href="/" style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;color:#FDF6E3;">
+						Sabores <span style="color:#C8922A;">del Valle</span>
 					</a>
-					<button type="button" class="-m-2.5 p-2.5 text-brand-red" @click="open = false">
-						<span class="sr-only">Close menu</span>
-						<svg
-							class="size-8"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="2"
-							stroke="currentColor"
-							aria-hidden="true"
-							data-slot="icon"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+					<button type="button" class="-m-2.5 p-2.5" @click="open = false" aria-label="Cerrar menú">
+						<svg class="size-7" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#C8922A">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 						</svg>
 					</button>
 				</div>
-				<div class="mt-6 flow-root">
-					<div class="-my-6 divide-y divide-gray-500/10">
-						<div class="space-y-2 py-6 mt-16">
-							{
-								menuMain.map((item) => (
-									<a
-										@click="open = false"
-										href={item.url}
-										class={`block py-2 text-center font-semibold text-3xl ${item.highlighted ? "menu-item-highlighted w-max mx-auto !px-8 !py-2" : ""} ${pathname === item.url ? "menu-item-active" : ""}`}
-									>
-										{item.name}
-									</a>
-								))
-							}
-						</div>
-					</div>
+				<div class="flex flex-col gap-6 mt-4">
+					{menuMain.map((item) => (
+						<a
+							@click="open = false"
+							href={item.url}
+							class={`text-2xl font-bold text-center ${item.highlighted ? "button button-red w-full py-3" : ""} ${pathname === item.url ? "text-amber-400" : ""}`}
+							style={!item.highlighted ? "font-family:'Playfair Display',serif;color:#FDF6E3;" : "font-family:'Playfair Display',serif;"}
+						>
+							{item.name}
+						</a>
+					))}
 				</div>
 			</div>
 		</div>

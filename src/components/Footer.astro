@@ -1,21 +1,92 @@
 ---
-import { menuMain } from "~/data/menus";
+import { menuMain } from "~/data/menus.js";
+import { siteName, phone, phone2, email, address, socialMedia, hours } from "~/data/config";
 const currentYear = new Date().getFullYear();
-import { siteName } from "~/data/config";
 ---
 
-<footer class="bg-brand-green text-white">
-	<div class="container pt-16 pb-8">
-		<p class="text-center font-bold text-4xl text-white">Astro<span class="text-brand-red bg-white px-3 ml-1 rounded-lg">Pie</span></p>
-		<nav class="flex flex-col sm:flex-row items-center justify-center gap-x-12 gap-y-3 font-medium mt-6" aria-label="Footer">
-			{
-				menuMain.map((item) => (
-					<a href={item.url} class="hover:underline">
-						{item.name}
-					</a>
-				))
-			}
-		</nav>
-		<p class="mt-10 text-center text-sm">&copy; {currentYear} {siteName}. All rights reserved. <a class="underline" href="/privacy-policy">Privacy policy</a></p>
+<footer style="background-color:#1A0A00; color:#D4B896; border-top: 3px solid #C8922A;">
+	<div class="container py-16">
+		<!-- Top section -->
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+			<!-- Brand -->
+			<div class="lg:col-span-1">
+				<p style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;color:#FDF6E3;margin-bottom:0.5rem;">
+					Sabores <span style="color:#C8922A;">del Valle</span>
+				</p>
+				<p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#A89070;margin-bottom:1rem;">
+					Cocina Hondureña Auténtica
+				</p>
+				<p style="font-size:0.95rem;line-height:1.7;color:#A89070;">
+					Tradición, sabor y amor en cada plato desde 1998. El corazón de Honduras en tu mesa.
+				</p>
+				<!-- Social -->
+				<div class="flex gap-4 mt-6">
+					<a href={socialMedia.facebook.url} aria-label="Facebook"
+						style="width:38px;height:38px;background:#C8922A22;border:1px solid #C8922A44;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#C8922A;font-size:0.85rem;transition:all 0.2s;"
+						class="hover:bg-amber-600 hover:text-white">f</a>
+					<a href={socialMedia.instagram.url} aria-label="Instagram"
+						style="width:38px;height:38px;background:#C8922A22;border:1px solid #C8922A44;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#C8922A;font-size:0.85rem;transition:all 0.2s;"
+						class="hover:bg-amber-600 hover:text-white">ig</a>
+					<a href={socialMedia.whatsapp.url} aria-label="WhatsApp"
+						style="width:38px;height:38px;background:#C8922A22;border:1px solid #C8922A44;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#C8922A;font-size:0.85rem;transition:all 0.2s;"
+						class="hover:bg-amber-600 hover:text-white">w</a>
+				</div>
+			</div>
+
+			<!-- Navegación -->
+			<div>
+				<h4 style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:1rem;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.08em;">
+					Navegación
+				</h4>
+				<ul class="space-y-2">
+					{menuMain.filter(i => !i.highlighted).map((item) => (
+						<li>
+							<a href={item.url} style="color:#A89070;font-size:0.9rem;" class="hover:text-amber-400 transition">
+								{item.name}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<!-- Contacto -->
+			<div>
+				<h4 style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:1rem;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.08em;">
+					Contacto
+				</h4>
+				<ul class="space-y-3 text-sm" style="color:#A89070;">
+					<li>📍 {address.street}<br/>{address.city}, {address.state}</li>
+					<li><a href={phone.href} class="hover:text-amber-400 transition">📞 {phone.label}</a></li>
+					<li><a href={phone2.href} class="hover:text-amber-400 transition">📱 {phone2.label}</a></li>
+					<li><a href={email.href} class="hover:text-amber-400 transition">✉️ {email.label}</a></li>
+				</ul>
+			</div>
+
+			<!-- Horarios -->
+			<div>
+				<h4 style="font-family:'Playfair Display',serif;color:#FDF6E3;font-size:1rem;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.08em;">
+					Horarios
+				</h4>
+				<table class="hours-table text-sm" style="color:#A89070;">
+					<tbody>
+						{Object.entries(hours).map(([dia, hora]) => (
+							<tr>
+								<td style="font-weight:600;padding-right:1rem;padding-bottom:0.4rem;text-transform:capitalize;">{dia}</td>
+								<td style="padding-bottom:0.4rem;">{hora}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Divider -->
+		<div style="height:1px;background:linear-gradient(to right,transparent,#C8922A,transparent);margin-bottom:1.5rem;"></div>
+
+		<!-- Bottom -->
+		<div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-sm" style="color:#6B5030;">
+			<p>© {currentYear} {siteName}. Todos los derechos reservados.</p>
+			<a href="/privacy-policy" style="color:#6B5030;" class="hover:text-amber-400 transition">Política de Privacidad</a>
+		</div>
 	</div>
 </footer>
